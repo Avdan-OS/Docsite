@@ -1,4 +1,4 @@
-name: NPM Dev site Deploy
+name: Build and Deploy Docs site
 
 on:
   push:
