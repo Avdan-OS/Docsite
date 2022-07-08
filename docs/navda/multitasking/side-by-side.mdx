@@ -1,0 +1,24 @@
+---
+sidebar_position: 2
+---
+# Side-by-side View
+
+
+import {useEffect} from 'react';
+
+export const AutoPlayVid = ({src}) => {
+    useEffect(() => {
+        const video = document.querySelector('video');
+        video.play();
+    }, []);
+    
+    return (
+        <video style={{width: "50%"}} loop muted>
+            <source src={src} type="video/webm" />
+            Showcase video could not be loaded.
+        </video>
+    )
+} 
+
+<AutoPlayVid src="/vid/side-by-side.webm" />
+
