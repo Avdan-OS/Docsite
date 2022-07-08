@@ -33,7 +33,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebar/meta.js'),
+          path: "docs/meta"
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -53,6 +54,19 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'navda',
+        path: 'docs/navda',
+        routeBasePath: 'navda',
+        sidebarPath: require.resolve('./sidebar/navda.js'),
+        // ... other options
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -67,9 +81,14 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Project AvdanOS',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            to: 'navda/navda-intro',
+            position: 'left',
+            label: 'Navda',
+          },
+          {to: '/blog', label: 'Blog', position: 'right'},
           {
             href: 'https://github.com/Avdan-OS',
             label: 'GitHub',
