@@ -103,16 +103,20 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Overview',
                 to: '/docs/intro',
               },
               {
+                label: 'Contribute',
+                to: '/docs/category/contributing-to-avdanos-project',
+              },
+              {
                 label: 'Nadva',
-                to: 'nadva/nadva-intro',
+                to: '/nadva/nadva-intro',
               },
               {
                 label: 'Multitasking',
-                to: '/nadva/multitasking/intro',
+                to: '/nadva/category/multitasking-in-avdanos',
               },
             ],
           },
@@ -134,6 +138,10 @@ const config = {
               {
                 label: 'Instagram',
                 href: 'https://www.instagram.com/avdanos_/',
+              },
+              {
+                label: 'Reddit',
+                href: 'https://www.reddit.com/r/AvdanOS/',
               },
             ],
           },
