@@ -15,28 +15,57 @@ Help contribute to it on our [GitHub](https://github.com/Avdan-OS/docsite/tree/m
 To get started, fork [our docs repo](https://github.com/Avdan-OS/docsite) on GitHub.
 
 ## 2. Clone your fork
-Clone your fork to your local machine.
+Clone your fork to your local machine. Then, switch to the `dev` branch.
 
-```bash title="Cloning your fork"
+```bash title="You can use these Git commands, or alternatively, use the source control menus in your IDE."
 git clone https://github.com/<your-username>/docsite.git
+git checkout dev
 ```
-
-## 3. Make some changes
-Write some documentation to your fork.
 
 :::tip
 Make sure to keep your fork up to date with the latest changes by periodically syncing it with ours.
 :::
+
+:::caution
+Our `dev` branch are for docs that are a work in progress.
+**Do not** commit your changes into the `main` branch.
+:::
+
+## 3. Make some changes
+To preview your changes live on your local machine, you'll need to set up a development environment.
+### 3 (a) Setting up the development environment
+From here on, you'll need to have **NodeJS** and **NPM** or another suitable package manager installed.
+
+1. First install all the dependencies.
+```bash title="Installing dependencies with NPM"
+npm install
+```
+
+2. Start the dev server.
+```bash
+npm run start
+```
+
+Now, you should be able to edit the doc files and have them automatically reload in the browser.
+
+### 3 (b) Writing Documentation
+
 :::tip
 If you use VS Code, you can use our snippets to help you along the way.
 :::
+
+
+Now it's time for the fun part: write some documentation to your fork.
+
+Make sure to follow [our guidelines](./guidelines).
+
 
 ## 4. Commit and push your changes
 Commit and push your changes to your fork.
 
 ## 5. Submit a pull request
-Submit a pull request to Avdan-OS/docsite repo.
+Submit a pull request to our [`Avdan-OS/docsite`](https://github.com/Avdan-OS/docsite) repo.
 We'll get round to reviewing your changes and if they fit our guidelines we'll merge them into the main repo.
 
-## 6. See your changes on the site
-If all goes well, your docs will be live on this very site. How cool is that?
+## 6. Publication
+If all goes well, your docs will eventually be live on this very site. How cool is that?
