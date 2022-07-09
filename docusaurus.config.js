@@ -106,6 +106,14 @@ const config = {
                 label: 'Tutorial',
                 to: '/docs/intro',
               },
+              {
+                label: 'Nadva',
+                to: 'nadva/nadva-intro',
+              },
+              {
+                label: 'Multitasking',
+                to: '/nadva/multitasking/intro',
+              },
             ],
           },
           {
@@ -118,6 +126,14 @@ const config = {
               {
                 label: 'YouTube',
                 href: 'https://www.youtube.com/channel/UCHLCBj83J7bR82HwjhCJusA',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/avdan_os',
+              },
+              {
+                label: 'Instagram',
+                href: 'https://www.instagram.com/avdanos_/',
               },
             ],
           },
