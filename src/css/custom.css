@@ -49,3 +49,33 @@
 {
   color: #ffffff;
 }
+
+.footer__link-item{
+  text-decoration: none;
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(90deg, #57a2ff, #7f05ff);
+  background-position: left bottom;
+  transition: background-size 400ms ease;
+}
+
+.footer__link-item:hover{
+  background-size: 100% 3px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar__link{
+  text-decoration: none;
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(90deg, #57a2ff, #7f05ff);
+  background-position: left bottom;
+  transition: background-size 400ms ease;
+}
+
+.navbar__link:hover{
+  background-size: 100% 3px;
+  color: initial;
+  text-decoration: none;
+}
