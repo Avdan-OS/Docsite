@@ -10,7 +10,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #8000FF;
+  --ifm-color-primary: #A347FF;
   --ifm-color-primary-dark: #AC59FF;
   --ifm-color-primary-darker: #8B54FF;
   --ifm-color-primary-darkest: #9932FF;
@@ -34,7 +34,7 @@
   --ifm-color-primary-lighter: #9933FF;
   --ifm-color-primary-lightest: #A347FF; */
 
-  --ifm-color-primary: #6600CC;
+  --ifm-color-primary: #A347FF;
   --ifm-color-primary-dark: #5200A3;
   --ifm-color-primary-darker: #5200A3;
   --ifm-color-primary-darkest: #3D007A;
