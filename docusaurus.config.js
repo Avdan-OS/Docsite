@@ -149,8 +149,12 @@ const config = {
             title: 'More',
             items: [
               {
+                label: 'Blog',
+                href: '/blog',
+              },
+              {
                 label: 'Our Website',
-                to: 'https://avdanos.com/',
+                href: 'https://avdanos.com/',
               },
               {
                 label: 'GitHub',
