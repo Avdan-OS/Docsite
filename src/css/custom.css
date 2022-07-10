@@ -10,7 +10,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #8000FF;
+  --ifm-color-primary: #A347FF;
   --ifm-color-primary-dark: #AC59FF;
   --ifm-color-primary-darker: #8B54FF;
   --ifm-color-primary-darkest: #9932FF;
@@ -34,7 +34,7 @@
   --ifm-color-primary-lighter: #9933FF;
   --ifm-color-primary-lightest: #A347FF; */
 
-  --ifm-color-primary: #6600CC;
+  --ifm-color-primary: #ca95ff;
   --ifm-color-primary-dark: #5200A3;
   --ifm-color-primary-darker: #5200A3;
   --ifm-color-primary-darkest: #3D007A;
@@ -42,4 +42,40 @@
   --ifm-color-primary-lighter: #9933FF;
   --ifm-color-primary-lightest: #A347FF;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.hero__title,
+.hero__subtitle
+{
+  color: #ffffff;
+}
+
+.footer__link-item{
+  text-decoration: none;
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(90deg, #57a2ff, #7f05ff);
+  background-position: left bottom;
+  transition: background-size 400ms ease;
+}
+
+.footer__link-item:hover{
+  background-size: 100% 3px;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar__link{
+  text-decoration: none;
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(90deg, #57a2ff, #7f05ff);
+  background-position: left bottom;
+  transition: background-size 400ms ease;
+}
+
+.navbar__link:hover{
+  background-size: 100% 3px;
+  color: initial;
+  text-decoration: none;
 }

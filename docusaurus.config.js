@@ -88,10 +88,10 @@ const config = {
             position: 'left',
             label: 'Nadva',
           },
-          { to: '/blog', label: 'Blog', position: 'right' },
+          { to: 'https://github.com/Avdan-OS', label: 'Github', position: 'right' },
           {
-            href: 'https://github.com/Avdan-OS',
-            label: 'GitHub',
+            href: 'https://avdanos.com/downloads',
+            label: 'Download',
             position: 'right',
           },
         ],
@@ -103,16 +103,20 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Overview',
                 to: '/docs/intro',
               },
               {
+                label: 'Contribute',
+                to: '/docs/category/contributing-to-avdanos-project',
+              },
+              {
                 label: 'Nadva',
-                to: 'nadva/nadva-intro',
+                to: '/nadva/nadva-intro',
               },
               {
                 label: 'Multitasking',
-                to: '/nadva/multitasking/intro',
+                to: '/nadva/category/multitasking-in-avdanos',
               },
             ],
           },
@@ -135,6 +139,10 @@ const config = {
                 label: 'Instagram',
                 href: 'https://www.instagram.com/avdanos_/',
               },
+              {
+                label: 'Reddit',
+                href: 'https://www.reddit.com/r/AvdanOS/',
+              },
             ],
           },
           {
@@ -142,11 +150,19 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                href: '/blog',
+              },
+              {
+                label: 'Our Website',
+                href: 'https://avdanos.com/',
               },
               {
                 label: 'GitHub',
                 href: 'https://github.com/Avdan-OS/',
+              },
+              {
+                label: 'Download',
+                href: 'https://avdanos.com/downloads',
               },
             ],
           },
