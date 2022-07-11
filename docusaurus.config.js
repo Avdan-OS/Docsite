@@ -115,12 +115,20 @@ const config = {
                 to: '/docs/category/contributing-to-avdanos-project',
               },
               {
+                label: 'FAQ',
+                to: '/docs/faq',
+              },
+              {
                 label: 'Nadva',
                 to: '/nadva/nadva-intro',
               },
               {
                 label: 'Multitasking',
                 to: '/nadva/category/multitasking-in-avdanos',
+              },
+              {
+                label: 'Personalization',
+                to: '/nadva/category/personalization',
               },
             ],
           },
