@@ -2,9 +2,9 @@
 
 A couple of design guidelines for AvdanOS.
 
-## Website
+## Website Ideas
 
-Here we have some different website ideas that are yet to be implemented;
+Here we have some different website ideas that are cool but yet to be implemented;
 
 ### Parallax Effect
 _<u>Parallax scrolling</u>_ is a computer graphics technique used by web designers to create a faux-3D effect. As users scroll down as webpage, different layers of content or backgrounds move at different speeds, and this creates an optical illusion.
@@ -28,3 +28,19 @@ A tutorial from Fireship:
 Just like in the concept, the AvdanOS website could have an auto dark mode. We can use the `Date()` API in JavaScript to get the current time of day and change the site to either light or dark mode.
 
 ---
+
+### Shader implementation
+
+An interactive visualization of noises, data, etc.
+
+Example:
+
+https://cineshader.com/view/WslGWl
+
+---
+
+### User agent targeted marketing
+
+We can check the user's `user agent` to show a targeted message. User Agent detection should also be used for optimizing the download workflow. Using an API, we can understand the operating system the user is current running on their computer (and maybe use a poll) and use it to target key distinction factors between the user's OS and AvdanOS.
+
+_Written by TechStudent11 (TechStudent10#0821)_
