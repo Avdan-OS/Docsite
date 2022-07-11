@@ -88,7 +88,11 @@ const config = {
             position: 'left',
             label: 'Nadva',
           },
-          { to: 'https://github.com/Avdan-OS', label: 'Github', position: 'right' },
+          {
+            href: 'https://github.com/Avdan-OS',
+            position: 'right',
+            className: 'header-github-link',
+          },
           {
             href: 'https://avdanos.com/downloads',
             label: 'Download',
@@ -111,12 +115,20 @@ const config = {
                 to: '/docs/category/contributing-to-avdanos-project',
               },
               {
+                label: 'FAQ',
+                to: '/docs/faq',
+              },
+              {
                 label: 'Nadva',
                 to: '/nadva/nadva-intro',
               },
               {
                 label: 'Multitasking',
                 to: '/nadva/category/multitasking-in-avdanos',
+              },
+              {
+                label: 'Personalization',
+                to: '/nadva/category/personalization',
               },
             ],
           },
