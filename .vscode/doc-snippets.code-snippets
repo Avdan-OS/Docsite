@@ -71,5 +71,14 @@
 			"$1",
 			":::"
 		]
+	},
+	"Auto Play Video": {
+		"scope": "markdown,markdown-react",
+		"prefix": "@docs/vid",
+		"body": [
+			"import AutoPlay from \"@site/src/components/media/autoplay.js\";",
+			"",
+			"<AutoPlay src=\"$1\" />"
+		]
 	}
 }
