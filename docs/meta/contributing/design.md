@@ -21,5 +21,10 @@ A tutorial from Fireship:
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UgIwjLg4ONk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+---
 
-###
+### Day & Night Mode Cycle (Auto Dark Mode)
+
+Just like in the concept, the AvdanOS website could have an auto dark mode. We can use the `Date()` API in JavaScript to get the current time of day and change the site to either light or dark mode.
+
+---
