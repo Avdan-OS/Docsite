@@ -5,7 +5,7 @@ sidebar_position: 1
 
 Hello and welcome to the AvdanOS Docs!
 
-## What is AvdanOS ?
+## What is AvdanOS?
 ## The Concept
 AvdanOS is a design concept released by design YouTuber [Avdan](https://www.youtube.com/c/Avdan).
 
@@ -18,8 +18,8 @@ And also *AvdanOS Pro*:
 
 ## The Implementation
 ### Desktop Environment
-This project aims to implement AvdanOS first as a [Linux](https://en.wikipedia.org/wiki/Linux) [Desktop Environment (DE)](https://en.wikipedia.org/wiki/Desktop_environment), with its own Display Server, System UI, and applications.
+This project aims to implement AvdanOS first as a [Linux](https://en.wikipedia.org/wiki/Linux) [Desktop Environment (DE)](https://en.wikipedia.org/wiki/Desktop_environment), with its Display Server, System UI, and applications.
 
 ### Linux Distribution
-Current plans are to base AvdanOS on [Arch Linux](https://archlinux.org/).
+The current plans are to base AvdanOS on [Arch Linux](https://archlinux.org/).
 Moving on, the ambition would be to then package this DE and include it with an Arch ISO to make a full standalone Linux distribution. 
