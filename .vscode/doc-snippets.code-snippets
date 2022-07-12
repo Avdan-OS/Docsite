@@ -21,7 +21,7 @@
 		"body": [
 			":::caution",
 			"### 🚧 Under Construction 🚧", 
-			"This section of documentation is still under construction — it is not formalized and may change.",
+			"This section of the documentation is still under construction — it is not formalized and may change.",
 			"Help contribute to it on our [GitHub](https://github.com/Avdan-OS/docsite/tree/main/${RELATIVE_FILEPATH/[\\\\]/\\//g}).",
 			":::"
 		],
@@ -70,6 +70,15 @@
 			":::danger",
 			"$1",
 			":::"
+		]
+	},
+	"Auto Play Video": {
+		"scope": "markdown,markdown-react",
+		"prefix": "@docs/vid",
+		"body": [
+			"import AutoPlay from \"@site/src/components/media/autoplay.js\";",
+			"",
+			"<AutoPlay src=\"$1\" />"
 		]
 	}
 }
