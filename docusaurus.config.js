@@ -175,10 +175,10 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                href: '/blog',
-              },
+              // {
+              //   label: 'Blog',
+              //   href: '/blog',
+              // },
               {
                 label: 'Our Website',
                 href: 'https://avdanos.com/',
