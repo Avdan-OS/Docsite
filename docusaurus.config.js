@@ -33,8 +33,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebar/meta.js'),
-          path: "docs/meta"
+          sidebarPath: require.resolve('./sidebar/avdanos.js'),
+          path: "docs/avdanos"
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -65,6 +65,16 @@ const config = {
         // ... other options
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'tinan',
+        path: 'docs/tinan',
+        routeBasePath: 'tinan',
+        sidebarPath: require.resolve('./sidebar/tinan.js'),
+        // ... other options
+      },
+    ],
   ],
 
   themeConfig:
@@ -88,7 +98,16 @@ const config = {
             position: 'left',
             label: 'Nadva',
           },
-          { to: 'https://github.com/Avdan-OS', label: 'Github', position: 'right' },
+          {
+            to: 'tinan/tinan-intro',
+            position: 'left',
+            label: 'Tinan',
+          },
+          {
+            href: 'https://github.com/Avdan-OS',
+            position: 'right',
+            className: 'header-github-link',
+          },
           {
             href: 'https://avdanos.com/downloads',
             label: 'Download',
@@ -111,12 +130,20 @@ const config = {
                 to: '/docs/category/contributing-to-avdanos-project',
               },
               {
+                label: 'FAQ',
+                to: '/docs/faq',
+              },
+              {
                 label: 'Nadva',
                 to: '/nadva/nadva-intro',
               },
               {
                 label: 'Multitasking',
                 to: '/nadva/category/multitasking-in-avdanos',
+              },
+              {
+                label: 'Personalization',
+                to: '/nadva/category/personalization',
               },
             ],
           },
@@ -148,10 +175,10 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                href: '/blog',
-              },
+              // {
+              //   label: 'Blog',
+              //   href: '/blog',
+              // },
               {
                 label: 'Our Website',
                 href: 'https://avdanos.com/',
