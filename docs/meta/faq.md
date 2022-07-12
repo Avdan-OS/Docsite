@@ -5,7 +5,7 @@ sidebar_position: 2
 
 
 <details><summary>Bread??</summary>
-AvdanOS Community Discord Server curently has a bread chanel dedicated to bread 
+AvdanOS Community Discord Server currently has a bread chanel dedicated to bread. 🍞👍
 </details>
 
 
