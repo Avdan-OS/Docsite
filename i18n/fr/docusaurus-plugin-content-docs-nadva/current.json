@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Multitasking in AvdanOS": {
+    "message": "Multitasking in AvdanOS",
+    "description": "The label for category Multitasking in AvdanOS in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Multitasking in AvdanOS.link.generated-index.title": {
+    "message": "Multitasking",
+    "description": "The generated-index page title for category Multitasking in AvdanOS in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Personalization": {
+    "message": "Personalization",
+    "description": "The label for category Personalization in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Personalization.link.generated-index.title": {
+    "message": "Theming and customizing the OS.",
+    "description": "The generated-index page title for category Personalization in sidebar tutorialSidebar"
+  }
+}

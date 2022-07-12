@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "AvdanOS Docs",
+    "description": "The title in the navbar"
+  },
+  "item.label.Project AvdanOS": {
+    "message": "Project AvdanOS",
+    "description": "Navbar item with label Project AvdanOS"
+  },
+  "item.label.Nadva": {
+    "message": "Nadva",
+    "description": "Navbar item with label Nadva"
+  },
+  "item.label.Tinan": {
+    "message": "Tinan",
+    "description": "Navbar item with label Tinan"
+  }
+}

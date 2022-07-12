@@ -1,0 +1,38 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Contributing to AvdanOS Project": {
+    "message": "Contributing to AvdanOS Project",
+    "description": "The label for category Contributing to AvdanOS Project in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Contributing to AvdanOS Project.link.generated-index.title": {
+    "message": "Contributing to AvdanOS Project",
+    "description": "The generated-index page title for category Contributing to AvdanOS Project in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Development": {
+    "message": "Development",
+    "description": "The label for category Development in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Development.link.generated-index.title": {
+    "message": "Contributing to AvdanOS Development",
+    "description": "The generated-index page title for category Development in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Code Guidelines": {
+    "message": "Code Guidelines",
+    "description": "The label for category Code Guidelines in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Code Guidelines.link.generated-index.title": {
+    "message": "Code Guidelines",
+    "description": "The generated-index page title for category Code Guidelines in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Documentation": {
+    "message": "Documentation",
+    "description": "The label for category Documentation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Documentation.link.generated-index.title": {
+    "message": "Contributing to AvdanOS Documentation",
+    "description": "The generated-index page title for category Documentation in sidebar tutorialSidebar"
+  }
+}
