@@ -41,8 +41,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebar/meta.js'),
-          path: "docs/meta"
+          sidebarPath: require.resolve('./sidebar/avdanos.js'),
+          path: "docs/avdanos"
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
