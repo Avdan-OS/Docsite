@@ -65,6 +65,16 @@ const config = {
         // ... other options
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'tinan',
+        path: 'docs/tinan',
+        routeBasePath: 'tinan',
+        sidebarPath: require.resolve('./sidebar/tinan.js'),
+        // ... other options
+      },
+    ],
   ],
 
   themeConfig:
@@ -87,6 +97,11 @@ const config = {
             to: 'nadva/nadva-intro',
             position: 'left',
             label: 'Nadva',
+          },
+          {
+            to: 'tinan/tinan-intro',
+            position: 'left',
+            label: 'Tinan',
           },
           {
             href: 'https://github.com/Avdan-OS',
