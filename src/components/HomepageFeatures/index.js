@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Translate, {translate} from '@docusaurus/Translate';
 
 const FeatureList = [
   {
@@ -8,7 +9,7 @@ const FeatureList = [
     Svg: 'dock.svg',
     description: (
       <>
-        Everyone knows dock/task bar. We got a brand new dock, with more features than ever before.
+        <Translate>Everyone knows dock/task bar. We got a brand new dock, with more features than ever before.</Translate>
       <hr/>
       </>
     ),
@@ -18,7 +19,7 @@ const FeatureList = [
     Svg: 'drag_drop.svg',
     description: (
       <>
-        Drag and drop is the easiest way to transfer anything on your computer. We make it intuitive and easy to use.
+        <Translate>Drag and drop is the easiest way to transfer anything on your computer. We make it intuitive and easy to use.</Translate>
       <hr/>
       </>
     ),
@@ -28,7 +29,7 @@ const FeatureList = [
     Svg: 'files.svg',
     description: (
       <>
-        This file manager keeps you organized and productive. Find your files the instant you need it.
+        <Translate>This file manager keeps you organized and productive. Find your files the instant you need it.</Translate>
       <hr/>
       </>
     ),
@@ -38,7 +39,7 @@ const FeatureList = [
     Svg: 'multitask.svg',
     description: (
       <>
-        Want to do many tasks at a time? We know you and we got you. It's now not only multitasking, it's organized multitasking.
+        <Translate>Want to do many tasks at a time? We know you and we got you. It's now not only multitasking, it's organized multitasking.</Translate>
       </>
     ),
   },
@@ -47,7 +48,7 @@ const FeatureList = [
     Svg: 'context.svg',
     description: (
       <>
-        Context menu didn't change for multiple decades now. We are tired of a long list of items, and hey why not make it a circle? Don't like it? You can switch it back in settings!
+        <Translate>Context menu didn't change for multiple decades now. We are tired of a long list of items, and hey why not make it a circle? Don't like it? You can switch it back in settings!</Translate>
       </>
     ),
   },
@@ -56,7 +57,7 @@ const FeatureList = [
     Svg: 'layout.svg',
     description: (
       <>
-        With a list of presets determined from you apps, easily get to work with the perfect window layout. Not enough? Change it in the settings.
+        <Translate>With a list of presets determined from you apps, easily get to work with the perfect window layout. Not enough? Change it in the settings.</Translate>
       </>
     ),
   },
