@@ -5,7 +5,7 @@ sidebar_position: 2
 
 
 <details><summary>Bread??</summary>
-In the AvdanOS Community Discord Server bread is a big, big meme, we curently have a bread channel dedicated to bread!
+In the AvdanOS Community Discord Server bread is a big, big meme, we currently have a bread channel dedicated to bread! 🍞👍
 </details>
 
 
