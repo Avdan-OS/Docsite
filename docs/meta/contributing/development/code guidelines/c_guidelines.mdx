@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# C++ Code Guidelines
+# C Code Guidelines
 
 :::caution
 
@@ -11,24 +11,14 @@ This section of documentation is still under construction — it is not formaliz
 Help contribute to it on our [GitHub](https://github.com/Avdan-OS/docsite/docs/meta/contributing/documentation.md).
 :::
 
-# Table of Contents
-### 1. Names
-### 2. Headers
-### 3. Structs
-### 4. Functions
-### 5. Statements
-### 6. Types
-### 7. Comments
+Hello, developers!
+
+As with any project, the code readibility is very important to keep it organized.
+This section will go the through the principles and guidelines of our code style.
 
 ## Names
 
 #### Use pascal case for structs and snake case for variables and functions.
-
-:::tip
-
-When defining a const variable always write it in UPPER CASE
-
-:::
 
 **Do ✅**:
 
@@ -49,12 +39,6 @@ void ExampleFunc(); // void exampleFUNC();
 int exampleVar;
 const example_var;
 ```
-
-:::caution
-
-When declaring a costant use always CONST and not PREPROCESSOR DIRECTIVES
-
-:::
 
 #### Use full words, except when the variable name is too long.
 
@@ -102,7 +86,7 @@ char my_character(char);
 char my_character(char character);
 ```
 
-## Headers
+## Other punctuation
 
 #### Use ```#pragma once``` for header files. Why? Because ```#pragma once``` is less prone to making mistakes and it is less code to type.
 
@@ -118,65 +102,12 @@ char my_character(char character);
 #ifndef FILE_H
 #define FILE_H
 
-// code
+/*
+ * code
+*/
 
 #endif // FILE_H
 ```
-
-#### When including headers files, include first the standard libraries and then local headers
-
-**Do ✅**:
-
-```c
-#pragma once
-
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "file1.h"
-#include "file2.h"
-
-// code
-```
-
-**Don't ❌**:
-
-```c
-
-#pragma once
-
-#include "file1.h"
-#include <stdio.h>
-#include "file2.h"
-
-#include <stdlib.h>
-
-// code
-```
-
-## Structs
-
-#### Always use ```typedef struct``` for structs.
-
-**Do ✅**:
-
-```c
-typedef struct {
-    int a;
-    int b;
-} MyStruct;
-```
-
-**Don't ❌**:
-
-```c
-struct MyStruct {
-    int a;
-    int b;
-};
-```
-
-## Functions
 
 #### When writing a function, or a for cycle, don't write curly braces at the beginning of a new line.
 
@@ -229,12 +160,6 @@ if (my_variable % 2 == 0) {
 
 #### When the statement is too long, go to a new line.
 
-:::tip
-
-Same thing as above, but for a simple line of code.
-
-:::
-
 **Do ✅**:
 
 ```c
@@ -265,81 +190,4 @@ int my_variable2;
 unsigned int a;
 signed b;
 signed int c;
-```
-
-## Comments
-
-#### Always remember to add comments to your code to make it easier to read.
-
-**Do ✅**:
-
-```c
-// This function does this thing
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-```
-
-**Don't ❌**:
-
-```c
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-```
-
-#### Be coerent when you write comments
-
-**Do ✅**:
-
-```c
-// This function does this thing
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-
-// This function does this thing 2
-unsigned my_func2(unsigned a2, unsigned b2) {
-    // code
-}
-```
-
-**Don't ❌**:
-
-```c
-//this function does this thing.
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-
-//  this function does this thing 2
-unsigned my_func2(unsigned a2, unsigned b2) {
-    // code
-}
-```
-
-#### When writing big comments use ```/* */``` instead of ```//```
-
-**Do ✅**:
-
-```c
-/*
- * This
- * is
- * a
- * very
- * big
- * comment
- */
-```
-
-**Don't ❌**:
-
-```c
-// This
-// is
-// a
-// very
-// big
-// comment
 ```
