@@ -2,8 +2,10 @@ import React from "react";
 
 export default function AutoPlay({src}) {
     React.useEffect(() => {
-        const video = document.querySelector('video');
-        video.play();
+        const video = document.querySelectorAll('video');
+        video.forEach(vid => {
+            vid.play();
+        });
     }, []);
     
     return (

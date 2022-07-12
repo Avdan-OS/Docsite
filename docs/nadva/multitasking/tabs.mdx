@@ -1,0 +1,48 @@
+---
+sidebar_position: 2
+---
+# Tabs
+
+:::caution
+### 🚧 Under Construction 🚧
+This section of documentation is still under construction — it is not formalized and may change.
+Help contribute to it on our [GitHub](https://github.com/Avdan-OS/docsite/tree/main/docs/nadva/multitasking/tabs.mdx).
+:::
+
+import AutoPlay from "@site/src/components/media/autoplay.js";
+
+<AutoPlay src="/vid/tabs.webm" />
+
+## Expected Behavior
+Most applications will be able to be displayed as a tab.
+Examples would include:
+* Office applications (which uses separate windows for each document)
+* Media players
+
+## Further Suggestions
+:::caution
+### ❔ Unofficial Feature(s) ❔
+This section of documentation is a suggestion, and is not part of the original specification.
+
+The need of these/this feature(s) is still up for debate.
+:::
+### "Synthetic" Tab API
+
+<AutoPlay src="/vid/synthetic-tabs.webm" />
+
+Tabs are also a common pattern inside applications themselves.
+But, if we want to display the application's tabs as AvdanOS Tabs,
+we need to implement a way for the application to do so.
+
+Types of applications that would benefit:
+* Browsers
+* Code Editors
+
+#### What is a Synthetic Tab?
+A synthetic tab is a tab that is not a real application, which belongs 
+to a parent application.
+
+1. A user clicks on a synthetic tab.
+2. The parent application is notified.
+3. The parent application will change its view, and display content.
+4. The synthetic tab is marked as active.

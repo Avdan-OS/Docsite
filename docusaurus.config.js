@@ -58,10 +58,10 @@ const config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'navda',
-        path: 'docs/navda',
-        routeBasePath: 'navda',
-        sidebarPath: require.resolve('./sidebar/navda.js'),
+        id: 'nadva',
+        path: 'docs/nadva',
+        routeBasePath: 'nadva',
+        sidebarPath: require.resolve('./sidebar/nadva.js'),
         // ... other options
       },
     ],
@@ -84,14 +84,18 @@ const config = {
             label: 'Project AvdanOS',
           },
           {
-            to: 'navda/navda-intro',
+            to: 'nadva/nadva-intro',
             position: 'left',
-            label: 'Navda',
+            label: 'Nadva',
           },
-          {to: '/blog', label: 'Blog', position: 'right'},
           {
             href: 'https://github.com/Avdan-OS',
-            label: 'GitHub',
+            position: 'right',
+            className: 'header-github-link',
+          },
+          {
+            href: 'https://avdanos.com/downloads',
+            label: 'Download',
             position: 'right',
           },
         ],
@@ -103,8 +107,28 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Overview',
                 to: '/docs/intro',
+              },
+              {
+                label: 'Contribute',
+                to: '/docs/category/contributing-to-avdanos-project',
+              },
+              {
+                label: 'FAQ',
+                to: '/docs/faq',
+              },
+              {
+                label: 'Nadva',
+                to: '/nadva/nadva-intro',
+              },
+              {
+                label: 'Multitasking',
+                to: '/nadva/category/multitasking-in-avdanos',
+              },
+              {
+                label: 'Personalization',
+                to: '/nadva/category/personalization',
               },
             ],
           },
@@ -119,6 +143,18 @@ const config = {
                 label: 'YouTube',
                 href: 'https://www.youtube.com/channel/UCHLCBj83J7bR82HwjhCJusA',
               },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/avdan_os',
+              },
+              {
+                label: 'Instagram',
+                href: 'https://www.instagram.com/avdanos_/',
+              },
+              {
+                label: 'Reddit',
+                href: 'https://www.reddit.com/r/AvdanOS/',
+              },
             ],
           },
           {
@@ -126,11 +162,19 @@ const config = {
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                href: '/blog',
+              },
+              {
+                label: 'Our Website',
+                href: 'https://avdanos.com/',
               },
               {
                 label: 'GitHub',
                 href: 'https://github.com/Avdan-OS/',
+              },
+              {
+                label: 'Download',
+                href: 'https://avdanos.com/downloads',
               },
             ],
           },
