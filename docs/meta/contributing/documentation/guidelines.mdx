@@ -1,0 +1,171 @@
+---
+sidebar_position: 1
+---
+# Documentation Guidelines
+
+:::caution
+
+### 🚧 Under Construction 🚧
+
+This section of documentation is still under construction — it is not formalized and may change.
+Help contribute to it on our [GitHub](https://github.com/Avdan-OS/docsite/docs/meta/contributing/documentation.md).
+:::
+
+Hello, documentation makers!
+
+As with any project, the documentation is very important to keep it organized.
+This section will go the through the principles and guidelines of our documentation.
+
+:::note
+Our repositories may contain their own documentation and code guidelines, so
+we encourage you to read them in addition to the main guidelines.
+:::
+
+## 1. Use Clear Language
+
+Our documentation should use clear language in order to be understood
+using correct terminology where fitting.
+
+### 1 (a) Use English
+
+As it is intended for an international audience, all documentation should be written
+in standard English. Keep any spellings consistent.
+
+:::tip
+Use a spellchecker extension in your IDE/code editor if it doesn't have one in-built, such as [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) for VS Code.
+:::
+
+### 1 (b) Be on Point
+
+Do not waste both your or any readers' time by writing too much in any section.
+If you need to, split your ideas into multiple paragraphs, or even multiple documents if necessary.
+
+Try not to explore more than one main topic on a single page.
+
+<table>
+    <thead>
+        <tr>
+            <th>Do ✅</th>
+            <th>Don't ❌</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>Navda is the display server of the AvdanOS project, implemented in Wayland.</p>
+                <p>Wayland is an alternative to the older X Server standard which lets...</p>
+            </td>
+            <td>
+                <p> Navda is the display server of the AvdanOS project, implemented in Wayland. Wayland is a protocol alternative to the older X Server standard which lets...</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+## 2. Be Helpful
+When reading documentation, users may often want to learn more about the
+various topics mentioned on the page, or may want further clarication. We can help make the documentation
+easier to read by doing the following:
+
+### 2 (a) Highlight Keywords
+Use *italics* or **bold** to help make keywords stand out.
+
+<table>
+    <thead>
+        <tr>
+            <th>Do ✅</th>
+            <th>Don't ❌</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>Navda is the display server of the AvdanOS project, implemented in <i>Wayland</i>.</p>
+                <p>The Wayland protocol is an alternative to the older <i>X Server</i> standard which lets...</p>
+            </td>
+            <td>
+                <p>Navda is the display server of the AvdanOS project, implemented in Wayland.</p>
+                <p>Wayland is a protocol alternative to the older X Server standard which lets.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+### 2 (b) Link to external sources
+External links help guide users to places with more specificity on certain topics.
+You must make sure the source is trustworthy.
+
+<table>
+    <thead>
+        <tr>
+            <th>Do ✅</th>
+            <th>Don't ❌</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>Navda is the display server of the AvdanOS project, implemented in <i>Wayland</i>.</p>
+                <p>The <a href="https://wayland.freedesktop.org/">Wayland protocol</a> is an alternative to the older <a href="https://www.x.org/wiki/">X Server</a> standard which lets...</p>
+            </td>
+            <td>
+                <p>Navda is the display server of the AvdanOS project, implemented in <i>Wayland</i>.</p>
+                <p>Wayland is a protocol alternative to the older <i>X Server</i> standard which lets.</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+### 2 (c) Provide Examples
+Examples show users how to achieve a specific goal. They should be specific, and any code featured should both be easy to read and also behave as described.
+
+:::tip
+Reference [this Docusaurus Section](https://docusaurus.io/docs/markdown-features/code-blocks) to learn more about putting code blocks into your documentation.
+:::
+
+**Do ✅**:
+
+```js title="Stats API — Get the number of AvdanOS downloads"
+fetch("https://api.avdanos.com/stats/downloads",
+    {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token, // <--- AvdanOS API token
+        },
+    }
+)
+    .then(res => res.json())
+    .then(console.log);
+```
+
+**Don't ❌**:
+
+```js
+fetch("https://api.avdanos.com/stats/downloads", { method: "GET", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token, /* <--- AvdanOS API token */ },}).then(res => res.json()).then(console.log);
+```
+
+### 2 (d) Use Multimedia
+> A picture is worth a thousand words.
+
+Sometimes, it may be helpful to include pictures and/or video on a page to help further visualize an idea.
+These media must not take too long to load, or hinder the user experience.
+
+| Do ✅ | Don't ❌ |
+| ----- | --------- |
+| Include relevant media. | Include media that is too long, not relevant to the topic, or is too big in file size. |
+
+:::tip
+Process your content before including it in your documentation such as by compressing it.
+
+Tools like [FFmpeg](https://ffmpeg.org/) are especially useful when processing video.
+
+An example command:
+```bash title="Take 1:40 to 1:50 of input.mp4, remove audio, and compress the clip to WEBM."
+ffmpeg -i 'input.mp4' -ss 1:40 -t 0:10 -vf scale=1920:1080 -c:v vp9 -an output.webm
+```
+:::
+
+:::tip
+Use newer efficient file formats such as [WebM](https://en.wikipedia.org/wiki/WebM) for video, or [MP3](https://en.wikipedia.org/wiki/MP3) for audio, or [WebP](https://en.wikipedia.org/wiki/WebP) for images.
+:::
