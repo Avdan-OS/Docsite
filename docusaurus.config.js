@@ -139,7 +139,7 @@ const config = {
                 to: '/nadva/nadva-intro',
               },
               {
-                label: 'Titan',
+                label: 'Tinan',
                 to: '/tinan/tinan-intro',
               },
             ],
