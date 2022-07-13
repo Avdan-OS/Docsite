@@ -15,15 +15,11 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"Documentation Under Progress": {
+	"🚧 Under Construction": {
 		"scope": "markdown,markdown-react",
-		"prefix": "@docs/progress",
+		"prefix": ["@notice/progress", "@notice/wip", "@notice/construction", "@notice/incomplete"],
 		"body": [
-			":::caution",
-			"### 🚧 Under Construction 🚧", 
-			"This section of the documentation is still under construction — it is not formalized and may change.",
-			"Help contribute to it on our [GitHub](https://github.com/Avdan-OS/docsite/tree/main/${RELATIVE_FILEPATH/[\\\\]/\\//g}).",
-			":::"
+			"<Notice type=\"wip\" url=\"/${RELATIVE_FILEPATH/[\\\\]/\\//g}\" />"
 		],
 		"description": "Place 'under construction' notice"
 	},
