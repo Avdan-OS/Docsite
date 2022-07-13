@@ -109,9 +109,18 @@ const config = {
             className: 'header-github-link',
           },
           {
-            href: 'https://avdanos.com/downloads',
-            label: 'Download',
+            type: 'localeDropdown',
             position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                value: '<hr style="margin: 0.3rem 0;">',
+              },
+              {
+                href: 'https://github.com/Avdan-OS/docsite',
+                label: 'Help Us Translate',
+              },
+            ],
           },
         ],
       },
