@@ -3,9 +3,37 @@
   align-items: center;
   padding: 2rem 0;
   width: 100%;
+  justify-content: space-between;  
 }
 
-.featureSvg {
+.card{
+  width: 20rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.5); 
+}
+.repo_list{
+  display: flex;
+  align-content: space-between;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+}
+.repo_desc{
+  margin: 10px;
+}
+.cardImg{
+  width: 400px;
   height: 200px;
-  width: 200px;
+  border-radius: 0.5rem;
+}
+
+/* Make the repo list colum when in 728px */
+@media screen and (max-width: 728px) {
+  .repo_list{
+    flex-direction: column;
+    align-content: center;
+  }
 }
