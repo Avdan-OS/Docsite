@@ -12,21 +12,21 @@ const ReposList = [
       'All the new Updates and Information about AvdanOS and Support.',
     imageUrl: website_img,
     githubUrl: 'https://github.com/Avdan-OS/Website',
-    docUrl: 'j',
+    docUrl: '/website',
   },
   {
     title: 'Desktop Environment',
     description: 'Meet Nadva, the official Desktop Environment for AvdanOS.',
     imageUrl: nadva_img,
     githubUrl: 'https://github.com/Avdan-OS/Website',
-    docUrl: 'j',
+    docUrl: '/nadva/nadva-intro',
   },
   {
     title: 'Tinan',
     description: 'A Discord Bot Made for the AvdanOS Community Discord server.',
     imageUrl: tinan_img,
     githubUrl: 'https://github.com/Avdan-OS/Website',
-    docUrl: 'j',
+    docUrl: '/tinan/tinan-intro',
   },
 ]
 
