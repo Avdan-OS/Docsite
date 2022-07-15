@@ -8,7 +8,7 @@ export default ({url}) => (
         title="Under Construction"
         icon="🚧"
     >
-        This section of documentation is not formalized and may change. <br />
+        This section of the documentation is not formalized and may change. <br />
         Help us by <a href={`https://github.com/Avdan-OS/docsite/tree/dev${url}`}>contributing to it</a> on our GitHub.
     </Admonition>
 );
