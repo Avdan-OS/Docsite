@@ -109,9 +109,18 @@ const config = {
             className: 'header-github-link',
           },
           {
-            href: 'https://avdanos.com/downloads',
-            label: 'Download',
+            type: 'localeDropdown',
             position: 'right',
+            dropdownItemsAfter: [
+              {
+                type: 'html',
+                value: '<hr style="margin: 0.3rem 0;">',
+              },
+              {
+                href: 'https://github.com/Avdan-OS/docsite',
+                label: 'Help Us Translate',
+              },
+            ],
           },
         ],
       },
@@ -126,24 +135,12 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: 'Contribute',
-                to: '/docs/category/contributing-to-avdanos-project',
-              },
-              {
-                label: 'FAQ',
-                to: '/docs/faq',
-              },
-              {
                 label: 'Nadva',
                 to: '/nadva/nadva-intro',
               },
               {
-                label: 'Multitasking',
-                to: '/nadva/category/multitasking-in-avdanos',
-              },
-              {
-                label: 'Personalization',
-                to: '/nadva/category/personalization',
+                label: 'Tinan',
+                to: '/tinan/tinan-intro',
               },
             ],
           },
