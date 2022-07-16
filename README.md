@@ -1,8 +1,13 @@
-# Website
+# AvdanOS docsite
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+> **Warning**
+> Use NPM instead of Yarn, and make PR's instead of direct commits.
 
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator. You can find the website [here.](https://docs.avdanos.com/)
 
+```
+$ npm install
+```
 
 ### Local Development
 
