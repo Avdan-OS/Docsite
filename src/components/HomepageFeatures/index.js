@@ -12,7 +12,7 @@ const ReposList = [
       'All the new Updates and Information about AvdanOS and Support.',
     imageUrl: website_img,
     githubUrl: 'https://github.com/Avdan-OS/Website',
-    docUrl: '/website',
+    docUrl: '/website/website-overview',
   },
   {
     title: 'Desktop Environment',
@@ -26,7 +26,7 @@ const ReposList = [
     description: 'A Discord Bot Made for the AvdanOS Community Discord server.',
     imageUrl: tinan_img,
     githubUrl: 'https://github.com/Avdan-OS/Website',
-    docUrl: '/tinan/tinan-intro',
+    docUrl: '/tinan/tinan-overview',
   },
 ]
 
