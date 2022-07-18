@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 # C++ Code Guidelines
 
-<Notice type="wip" url="/docs/avdanos/contributing/development/code_guidelines/c_guidelines.mdx" />
+<Notice type="wip" url="/docs/avdanos/contributing/development/code_guidelines/cpp_guidelines.mdx" />
 
 ## Names
 
@@ -11,14 +11,14 @@ sidebar_position: 1
 
 :::tip
 
-When defining a const variable always write it in UPPER CASE
+When defining a const variable always write it in UPPERCASE
 
 :::
 
 
 **Do ✅**:
 
-```c
+```cpp
 struct Example;
 size_t example_t;
 void example_func();
@@ -28,7 +28,7 @@ const EXAMPLE_VAR;
 
 **Don't ❌**:
 
-```c
+```cpp
 struct example;
 size_t exampleT; // size_t exampleSize;
 void ExampleFunc(); // void exampleFUNC();
@@ -40,7 +40,7 @@ const example_var;
 
 **Do ✅**:
 
-```c
+```cpp
 int my_var;
 int length;
 char width;
@@ -48,7 +48,7 @@ char width;
 
 **Don't ❌**:
 
-```c
+```cpp
 int my_variable;
 int len;
 char width;
@@ -64,13 +64,13 @@ When declaring a constant use always CONST and not PREPROCESSOR DIRECTIVES
 
 **Do ✅**:
 
-```c
+```cpp
 char convert_to_ascii(int);
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 char to_ascii(int);
 ```
 
@@ -78,13 +78,13 @@ char to_ascii(int);
 
 **Do ✅**:
 
-```c
+```cpp
 char my_character(char);
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 char my_character(char character);
 ```
 
@@ -100,7 +100,7 @@ Same thing for classes!
 
 **Do ✅**:
 
-```c
+```cpp
 switch (foo) {
 case 1:
     printf("bread");
@@ -113,7 +113,7 @@ default:
 
 **Don't ❌**:
 
-```c
+```cpp
 switch (foo) {
     case 1:
         printf("bread");
@@ -130,13 +130,13 @@ switch (foo) {
 
 **Do ✅**:
 
-```c
+```cpp
 #pragma once
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 #ifndef FILE_H
 #define FILE_H
 
@@ -151,7 +151,7 @@ switch (foo) {
 
 **Do ✅**:
 
-```c
+```cpp
 #include <stdio.h>
 
 #include "file.h"
@@ -159,7 +159,7 @@ switch (foo) {
 
 **Don't ❌**:
 
-```c
+```cpp
 #include "file.h"
 
 #include <stdio.h>
@@ -171,7 +171,7 @@ switch (foo) {
 
 **Do ✅**:
 
-```c
+```cpp
 int my_function(int a, int b) {
     // code
 }
@@ -183,7 +183,7 @@ for (int i = 0; i <= 10; i++) {
 
 **Don't ❌**:
 
-```c
+```cpp
 int my_function(int a, int b)
 {
     // code
@@ -199,7 +199,7 @@ for (int i = 0; i <= 10; i++)
 
 **Do ✅**:
 
-```c
+```cpp
 int my_function(int a, int b) {
   // code
 
@@ -216,7 +216,7 @@ int my_function(int a, int b) {
 
 **Don't ❌**:
 
-```c
+```cpp
 int my_function(int a, int b) {
     // code
 
@@ -237,7 +237,7 @@ int my_function(int a, int b) {
 
 **Do ✅**:
 
-```c
+```cpp
 my_variable % 2 == 0 ? printf("even") : printf("odd");
 ```
 
@@ -255,14 +255,14 @@ if (my_variable % 2 == 0) {
 
 **Do ✅**:
 
-```c
+```cpp
 my_variable  % 2 == 0 && my_variable2 % 4 == 0 ? printf("foo") : \
 my_variable3 % 6 == 0 && my_variable4 % 8 == 0 ? printf("fee") : printf("fuu");
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 my_variable  % 2 == 0 && my_variable2 % 4 == 0 ? printf("foo") : my_variable3 % 6 == 0 && my_variable4 % 8 == 0 ? printf("fee") : printf("fuu");
 ```
 
@@ -272,14 +272,14 @@ my_variable  % 2 == 0 && my_variable2 % 4 == 0 ? printf("foo") : my_variable3 % 
 
 **Do ✅**:
 
-```c
+```cpp
 unsigned my_variable;
 int my_variable2;
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 unsigned int a;
 signed b;
 signed int c;
