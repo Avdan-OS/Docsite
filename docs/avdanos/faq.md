@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 # FAQ
 
@@ -16,4 +16,3 @@ Second of all, we might use other languages, such as C++ with their respective G
 
 And, finally, we all need to keep in mind, that there is no "one-fits-all solution": every action needs a tool to perform it. And those tools can be different. So wait for more news regarding the tech stack. We will surely inform you of any updates on our Discord server.
 </details>
-
