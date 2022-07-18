@@ -3,16 +3,7 @@ sidebar_position: 1
 ---
 # C++ Code Guidelines
 
-<Notice type="wip" url="/docs/avdanos/contributing/development/code_guidelines/cpp_guidelines.mdx" />
-
-# Table of Contents
-### 1. Names
-### 2. Headers
-### 3. Structs
-### 4. Functions
-### 5. Statements
-### 6. Types
-### 7. Comments
+<Notice type="wip" url="/docs/avdanos/contributing/development/code_guidelines/c_guidelines.mdx" />
 
 ## Names
 
@@ -23,6 +14,7 @@ sidebar_position: 1
 When defining a const variable always write it in UPPER CASE
 
 :::
+
 
 **Do ✅**:
 
@@ -44,12 +36,6 @@ int exampleVar;
 const example_var;
 ```
 
-:::caution
-
-When declaring a constant use always CONST and not PREPROCESSOR DIRECTIVES
-
-:::
-
 #### Use full words, except when the variable name is too long.
 
 **Do ✅**:
@@ -67,6 +53,12 @@ int my_variable;
 int len;
 char width;
 ```
+
+:::caution
+
+When declaring a constant use always CONST and not PREPROCESSOR DIRECTIVES
+
+:::
 
 #### Use descriptive names in functions.
 
@@ -96,6 +88,42 @@ char my_character(char);
 char my_character(char character);
 ```
 
+## Switch
+
+#### In switch cases don't indent another level.
+
+:::tip
+
+Same thing for classes!
+
+:::
+
+**Do ✅**:
+
+```c
+switch (foo) {
+case 1:
+    printf("bread");
+case 2:
+    printf("akane");
+default:
+    printf("akane cat");
+}
+```
+
+**Don't ❌**:
+
+```c
+switch (foo) {
+    case 1:
+        printf("bread");
+    case 2:
+        printf("akane");
+    default:
+        printf("akane cat");
+}
+```
+
 ## Headers
 
 #### Use ```#pragma once``` for header files. Why? Because ```#pragma once``` is less prone to making mistakes and it is less code to type.
@@ -112,72 +140,38 @@ char my_character(char character);
 #ifndef FILE_H
 #define FILE_H
 
-// code
+/*
+ * code
+*/
 
 #endif // FILE_H
 ```
 
-#### When including headers files, include first the standard libraries and then local headers
+#### Include libraries first, then include local headers.
 
 **Do ✅**:
 
 ```c
-#pragma once
-
 #include <stdio.h>
-#include <stdlib.h>
 
-#include "file1.h"
-#include "file2.h"
-
-// code
+#include "file.h"
 ```
 
 **Don't ❌**:
 
 ```c
+#include "file.h"
 
-#pragma once
-
-#include "file1.h"
 #include <stdio.h>
-#include "file2.h"
-
-#include <stdlib.h>
-
-// code
 ```
 
-## Structs
-
-#### Always use ```typedef struct``` for structs.
-
-**Do ✅**:
-
-```c
-typedef struct {
-    int a;
-    int b;
-} MyStruct;
-```
-
-**Don't ❌**:
-
-```c
-struct MyStruct {
-    int a;
-    int b;
-};
-```
-
-## Functions
+## Blocks
 
 #### When writing a function, or a for cycle, don't write curly braces at the beginning of a new line.
 
 **Do ✅**:
 
 ```c
-
 int my_function(int a, int b) {
     // code
 }
@@ -198,6 +192,42 @@ int my_function(int a, int b)
 for (int i = 0; i <= 10; i++)
 {
     printf("%d\n", i);
+}
+```
+
+#### Use 4 spaces as tab instead of 2.
+
+**Do ✅**:
+
+```c
+int my_function(int a, int b) {
+  // code
+
+  if (my_statement == true)
+  {
+    // code
+  }
+  else
+  {
+    return 1;
+  }
+}
+```
+
+**Don't ❌**:
+
+```c
+int my_function(int a, int b) {
+    // code
+
+    if (my_statement == true)
+    {
+        // code
+    }
+    else
+    {
+        return 1;
+    }
 }
 ```
 
@@ -222,12 +252,6 @@ if (my_variable % 2 == 0) {
 ```
 
 #### When the statement is too long, go to a new line.
-
-:::tip
-
-Same thing as above, but for a simple line of code.
-
-:::
 
 **Do ✅**:
 
@@ -259,81 +283,4 @@ int my_variable2;
 unsigned int a;
 signed b;
 signed int c;
-```
-
-## Comments
-
-#### Always remember to add comments to your code to make it easier to read.
-
-**Do ✅**:
-
-```c
-// This function does this thing
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-```
-
-**Don't ❌**:
-
-```c
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-```
-
-#### Be coherent when you write comments
-
-**Do ✅**:
-
-```c
-// This function does this thing
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-
-// This function does this thing 2
-unsigned my_func2(unsigned a2, unsigned b2) {
-    // code
-}
-```
-
-**Don't ❌**:
-
-```c
-//this function does this thing.
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-
-//  this function does this thing 2
-unsigned my_func2(unsigned a2, unsigned b2) {
-    // code
-}
-```
-
-#### When writing big comments use ```/* */``` instead of ```//```
-
-**Do ✅**:
-
-```c
-/*
- * This
- * is
- * a
- * very
- * big
- * comment
- */
-```
-
-**Don't ❌**:
-
-```c
-// This
-// is
-// a
-// very
-// big
-// comment
 ```
