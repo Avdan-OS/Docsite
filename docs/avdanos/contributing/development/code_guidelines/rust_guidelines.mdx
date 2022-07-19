@@ -87,3 +87,31 @@ let var: f64 = 7.42;
 ```rs
 let var = 7.42
 ```
+
+## Statements
+
+#### If the code is not too long, write the statement in a single line
+
+**Do ✅**:
+
+```rs
+loop { println!("This phrase never stops!") }
+
+let x = 5;
+let y = if x == 5 { 10 } else { 20 };
+```
+
+**Don't ❌**:
+
+```rs
+loop {
+    println!("This phrase never stops!")
+}
+
+let x = 5;
+let y = if x == 5 {
+    10
+} else {
+    20
+};
+```
