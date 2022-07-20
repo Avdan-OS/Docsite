@@ -23,8 +23,8 @@ Here are some amazing sites to get started on rust!
 Rust Book: https://doc.rust-lang.org/book/
 
 Some rust Youtube videos: 
-https://youtu.be/br3GIIQeefY
-https://youtu.be/iU21KZ4i6bU
-https://youtu.be/5C_HPTJg5ek 
+- https://youtu.be/br3GIIQeefY
+- https://youtu.be/iU21KZ4i6bU
+- https://youtu.be/5C_HPTJg5ek 
 
 </details>
