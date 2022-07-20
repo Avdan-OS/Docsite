@@ -16,3 +16,15 @@ Second of all, we might use other languages, such as C++ with their respective G
 
 And, finally, we all need to keep in mind, that there is no "one-fits-all solution": every action needs a tool to perform it. And those tools can be different. So wait for more news regarding the tech stack. We will surely inform you of any updates on our Discord server.
 </details>
+
+<details><summary>Rust Resources</summary>
+Here are some amazing sites to get started on rust!
+
+Rust Book: https://doc.rust-lang.org/book/
+
+Some rust Youtube videos: 
+https://youtu.be/br3GIIQeefY
+https://youtu.be/iU21KZ4i6bU
+https://youtu.be/5C_HPTJg5ek 
+
+</details>
