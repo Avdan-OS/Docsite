@@ -88,6 +88,22 @@ let var: f64 = 7.42;
 let var = 7.42
 ```
 
+#### When printing a simple variable value don't do the traditional way. Why? Because it's less write time
+
+**Do ✅**:
+
+```rs
+let x = 4;
+println!("{x}");
+```
+
+**Don't ❌**:
+
+```rs
+let x = 4;
+println!("{}", x);
+```
+
 ## Statements
 
 #### If the code is not too long, write the statement in a single line
@@ -114,4 +130,24 @@ let y = if x == 5 {
 } else {
     20
 };
+```
+
+## Functions
+
+#### When returning a value just type the name of delete the return keyword
+
+**Do ✅**:
+
+```rs
+fn function(x: i32) -> i32 {
+    x
+}
+```
+
+**Don't ❌**:
+
+```rs
+fn function(x: i32) -> i32 {
+    return x;
+}
 ```
