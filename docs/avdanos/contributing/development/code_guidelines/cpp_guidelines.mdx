@@ -5,28 +5,20 @@ sidebar_position: 1
 
 <Notice type="wip" url="/docs/avdanos/contributing/development/code_guidelines/cpp_guidelines.mdx" />
 
-# Table of Contents
-### 1. Names
-### 2. Headers
-### 3. Structs
-### 4. Functions
-### 5. Statements
-### 6. Types
-### 7. Comments
-
 ## Names
 
 #### Use pascal case for structs and snake case for variables and functions.
 
 :::tip
 
-When defining a const variable always write it in UPPER CASE
+When defining a const variable always write it in UPPERCASE
 
 :::
 
+
 **Do ✅**:
 
-```c
+```cpp
 struct Example;
 size_t example_t;
 void example_func();
@@ -36,12 +28,30 @@ const EXAMPLE_VAR;
 
 **Don't ❌**:
 
-```c
+```cpp
 struct example;
 size_t exampleT; // size_t exampleSize;
 void ExampleFunc(); // void exampleFUNC();
 int exampleVar;
 const example_var;
+```
+
+#### Use full words, except when the variable name is too long.
+
+**Do ✅**:
+
+```cpp
+int my_var;
+int length;
+char width;
+```
+
+**Don't ❌**:
+
+```cpp
+int my_variable;
+int len;
+char width;
 ```
 
 :::caution
@@ -50,35 +60,17 @@ When declaring a constant use always CONST and not PREPROCESSOR DIRECTIVES
 
 :::
 
-#### Use full words, except when the variable name is too long.
-
-**Do ✅**:
-
-```c
-int my_var;
-int length;
-char width;
-```
-
-**Don't ❌**:
-
-```c
-int my_variable;
-int len;
-char width;
-```
-
 #### Use descriptive names in functions.
 
 **Do ✅**:
 
-```c
+```cpp
 char convert_to_ascii(int);
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 char to_ascii(int);
 ```
 
@@ -86,14 +78,50 @@ char to_ascii(int);
 
 **Do ✅**:
 
-```c
+```cpp
 char my_character(char);
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 char my_character(char character);
+```
+
+## Switch
+
+#### In switch cases don't indent another level.
+
+:::tip
+
+Same thing for classes!
+
+:::
+
+**Do ✅**:
+
+```cpp
+switch (foo) {
+case 1:
+    printf("bread");
+case 2:
+    printf("akane");
+default:
+    printf("akane cat");
+}
+```
+
+**Don't ❌**:
+
+```cpp
+switch (foo) {
+    case 1:
+        printf("bread");
+    case 2:
+        printf("akane");
+    default:
+        printf("akane cat");
+}
 ```
 
 ## Headers
@@ -102,82 +130,48 @@ char my_character(char character);
 
 **Do ✅**:
 
-```c
+```cpp
 #pragma once
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 #ifndef FILE_H
 #define FILE_H
 
-// code
+/*
+ * code
+*/
 
 #endif // FILE_H
 ```
 
-#### When including headers files, include first the standard libraries and then local headers
+#### Include libraries first, then include local headers.
 
 **Do ✅**:
 
-```c
-#pragma once
-
+```cpp
 #include <stdio.h>
-#include <stdlib.h>
 
-#include "file1.h"
-#include "file2.h"
-
-// code
+#include "file.h"
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
+#include "file.h"
 
-#pragma once
-
-#include "file1.h"
 #include <stdio.h>
-#include "file2.h"
-
-#include <stdlib.h>
-
-// code
 ```
 
-## Structs
-
-#### Always use ```typedef struct``` for structs.
-
-**Do ✅**:
-
-```c
-typedef struct {
-    int a;
-    int b;
-} MyStruct;
-```
-
-**Don't ❌**:
-
-```c
-struct MyStruct {
-    int a;
-    int b;
-};
-```
-
-## Functions
+## Blocks
 
 #### When writing a function, or a for cycle, don't write curly braces at the beginning of a new line.
 
 **Do ✅**:
 
-```c
-
+```cpp
 int my_function(int a, int b) {
     // code
 }
@@ -189,7 +183,7 @@ for (int i = 0; i <= 10; i++) {
 
 **Don't ❌**:
 
-```c
+```cpp
 int my_function(int a, int b)
 {
     // code
@@ -201,13 +195,49 @@ for (int i = 0; i <= 10; i++)
 }
 ```
 
+#### Use 4 spaces as tab instead of 2.
+
+**Do ✅**:
+
+```cpp
+int my_function(int a, int b) {
+  // code
+
+  if (my_statement == true)
+  {
+    // code
+  }
+  else
+  {
+    return 1;
+  }
+}
+```
+
+**Don't ❌**:
+
+```cpp
+int my_function(int a, int b) {
+    // code
+
+    if (my_statement == true)
+    {
+        // code
+    }
+    else
+    {
+        return 1;
+    }
+}
+```
+
 ## Statements
 
 #### Use conditional operators instead of if else statements.
 
 **Do ✅**:
 
-```c
+```cpp
 my_variable % 2 == 0 ? printf("even") : printf("odd");
 ```
 
@@ -223,22 +253,16 @@ if (my_variable % 2 == 0) {
 
 #### When the statement is too long, go to a new line.
 
-:::tip
-
-Same thing as above, but for a simple line of code.
-
-:::
-
 **Do ✅**:
 
-```c
+```cpp
 my_variable  % 2 == 0 && my_variable2 % 4 == 0 ? printf("foo") : \
 my_variable3 % 6 == 0 && my_variable4 % 8 == 0 ? printf("fee") : printf("fuu");
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 my_variable  % 2 == 0 && my_variable2 % 4 == 0 ? printf("foo") : my_variable3 % 6 == 0 && my_variable4 % 8 == 0 ? printf("fee") : printf("fuu");
 ```
 
@@ -248,92 +272,15 @@ my_variable  % 2 == 0 && my_variable2 % 4 == 0 ? printf("foo") : my_variable3 % 
 
 **Do ✅**:
 
-```c
+```cpp
 unsigned my_variable;
 int my_variable2;
 ```
 
 **Don't ❌**:
 
-```c
+```cpp
 unsigned int a;
 signed b;
 signed int c;
-```
-
-## Comments
-
-#### Always remember to add comments to your code to make it easier to read.
-
-**Do ✅**:
-
-```c
-// This function does this thing
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-```
-
-**Don't ❌**:
-
-```c
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-```
-
-#### Be coherent when you write comments
-
-**Do ✅**:
-
-```c
-// This function does this thing
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-
-// This function does this thing 2
-unsigned my_func2(unsigned a2, unsigned b2) {
-    // code
-}
-```
-
-**Don't ❌**:
-
-```c
-//this function does this thing.
-unsigned my_func(unsigned a, unsigned b) {
-    // code
-}
-
-//  this function does this thing 2
-unsigned my_func2(unsigned a2, unsigned b2) {
-    // code
-}
-```
-
-#### When writing big comments use ```/* */``` instead of ```//```
-
-**Do ✅**:
-
-```c
-/*
- * This
- * is
- * a
- * very
- * big
- * comment
- */
-```
-
-**Don't ❌**:
-
-```c
-// This
-// is
-// a
-// very
-// big
-// comment
 ```

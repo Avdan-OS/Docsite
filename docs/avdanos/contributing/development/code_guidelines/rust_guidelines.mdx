@@ -5,6 +5,149 @@ sidebar_position: 1
 
 <Notice type="wip" url="/docs/avdanos/contributing/development/code_guidelines/rust_guidelines.mdx" />
 
-Hello, developers!
+## Names
 
-As with any project, code readability is very important to keep it organized. This section will go through the principles and guidelines of our code style.
+#### Use pascal case for structs and snake case for variables and functions.
+
+:::tip
+
+When defining a const variable always write it in UPPERCASE
+
+:::
+
+
+**Do ✅**:
+
+```rs
+struct Example;
+fn example_func() -> &str;
+let example_var: i32;
+const EXAMPLE_VAR;
+```
+
+**Don't ❌**:
+
+```rs
+struct example;
+fn ExampleFunc() -> &str; // fn exampleFUNC() -> &str;
+let exampleVar: i32;
+const example_var;
+```
+
+#### Use full words, except when the variable name is too long.
+
+**Do ✅**:
+
+```rs
+let my_var: i64;
+let length: u8;
+let character: char;
+```
+
+**Don't ❌**:
+
+```rs
+let my_variable: i64;
+let len: u8;
+let character: char;
+```
+
+#### Use descriptive names in functions.
+
+**Do ✅**:
+
+```rs
+fn convert_to_ascii(let my_var: i32) -> char;
+```
+
+**Don't ❌**:
+
+```rs
+fn to_ascii(let my_var: i32) -> i32;
+```
+
+## Variables
+
+#### Always declare EXPLICITLY the type of a variable.
+
+:::tip
+
+Do the same thing for functions
+
+:::
+
+**Do ✅**:
+
+```rs
+let var: f64 = 7.42;
+```
+
+**Don't ❌**:
+
+```rs
+let var = 7.42
+```
+
+#### When printing a simple variable value don't do the traditional way. Why? Because it's less write time
+
+**Do ✅**:
+
+```rs
+let x = 4;
+println!("{x}");
+```
+
+**Don't ❌**:
+
+```rs
+let x = 4;
+println!("{}", x);
+```
+
+## Statements
+
+#### If the code is not too long, write the statement in a single line
+
+**Do ✅**:
+
+```rs
+loop { println!("This phrase never stops!") }
+
+let x = 5;
+let y = if x == 5 { 10 } else { 20 };
+```
+
+**Don't ❌**:
+
+```rs
+loop {
+    println!("This phrase never stops!")
+}
+
+let x = 5;
+let y = if x == 5 {
+    10
+} else {
+    20
+};
+```
+
+## Functions
+
+#### When returning a value just type the name of delete the return keyword
+
+**Do ✅**:
+
+```rs
+fn function(x: i32) -> i32 {
+    x
+}
+```
+
+**Don't ❌**:
+
+```rs
+fn function(x: i32) -> i32 {
+    return x;
+}
+```
