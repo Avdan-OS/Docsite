@@ -5,14 +5,16 @@ sidebar_position: 1
 
 <Notice type="wip" url="/docs/avdanos/contributing/development/code_guidelines/c_guidelines.mdx" />
 
-Hello, developers!
-
-As with any project, code readability is very important to keep it organized.
-This section will go through the principles and guidelines of our code style.
-
 ## Names
 
 #### Use pascal case for structs and snake case for variables and functions.
+
+:::tip
+
+When defining a const variable always write it in UPPERCASE
+
+:::
+
 
 **Do ✅**:
 
@@ -52,6 +54,12 @@ int len;
 char width;
 ```
 
+:::caution
+
+When declaring a constant use always CONST and not PREPROCESSOR DIRECTIVES
+
+:::
+
 #### Use descriptive names in functions.
 
 **Do ✅**:
@@ -80,7 +88,37 @@ char my_character(char);
 char my_character(char character);
 ```
 
-## Other punctuation
+## Switch
+
+#### In switch cases don't indent another level.
+
+**Do ✅**:
+
+```c
+switch (foo) {
+case 1:
+    printf("bread");
+case 2:
+    printf("akane");
+default:
+    printf("akane cat");
+}
+```
+
+**Don't ❌**:
+
+```c
+switch (foo) {
+    case 1:
+        printf("bread");
+    case 2:
+        printf("akane");
+    default:
+        printf("akane cat");
+}
+```
+
+## Headers
 
 #### Use ```#pragma once``` for header files. Why? Because ```#pragma once``` is less prone to making mistakes and it is less code to type.
 
@@ -103,12 +141,31 @@ char my_character(char character);
 #endif // FILE_H
 ```
 
+#### Include libraries first, then include local headers.
+
+**Do ✅**:
+
+```c
+#include <stdio.h>
+
+#include "file.h"
+```
+
+**Don't ❌**:
+
+```c
+#include "file.h"
+
+#include <stdio.h>
+```
+
+## Blocks
+
 #### When writing a function, or a for cycle, don't write curly braces at the beginning of a new line.
 
 **Do ✅**:
 
 ```c
-
 int my_function(int a, int b) {
     // code
 }
@@ -129,6 +186,42 @@ int my_function(int a, int b)
 for (int i = 0; i <= 10; i++)
 {
     printf("%d\n", i);
+}
+```
+
+#### Use 4 spaces as tab instead of 2.
+
+**Do ✅**:
+
+```c
+int my_function(int a, int b) {
+    // code
+
+    if (my_statement == true)
+    {
+        // code
+    }
+    else
+    {
+        return 1;
+    }
+}
+```
+
+**Don't ❌**:
+
+```c
+int my_function(int a, int b) {
+  // code
+
+  if (my_statement == true)
+  {
+    // code
+  }
+  else
+  {
+    return 1;
+  }
 }
 ```
 

@@ -1,4 +1,7 @@
 # AvdanOS docsite
+> **Alert**
+> For the time being the docsite is no longer the main focus of the project this means pull requests here will not be reviewed as often. Please see the DE and wayland compositor repos
+
 
 > **Warning**
 > Use NPM instead of Yarn, and make PR's instead of direct commits.
