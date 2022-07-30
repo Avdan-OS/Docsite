@@ -70,14 +70,24 @@
   background-size: 0% 3px;
   background-repeat: no-repeat;
   background-image: linear-gradient(90deg, #57a2ff, #7f05ff);
+  color: white !important;
   background-position: left bottom;
   transition: background-size 400ms ease;
 }
 
 .navbar__link:hover{
   background-size: 100% 3px;
+  color: white !important;
   color: initial;
   text-decoration: none;
+}
+
+[data-theme='light'] .navbar__link{
+  color: black !important;
+}
+
+[data-theme='light'] .navbar__link:hover{
+  color: black !important;
 }
 
 .header-github-link:hover {
