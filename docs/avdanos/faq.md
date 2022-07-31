@@ -26,6 +26,7 @@ Some rust Youtube videos:
 - https://youtu.be/br3GIIQeefY
 - https://youtu.be/iU21KZ4i6bU
 - https://youtu.be/5C_HPTJg5ek 
+- https://youtu.be/ygL_xcavzQ4
   
 Some rust Youtube playlists:
 - https://youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8
