@@ -1,0 +1,69 @@
+---
+sidebar_position: 2
+---
+# dragAdd
+
+```js
+dragAdd = (e, currentTarget, target, currentTarget_in_f, target_in_f, currentTarget_f, target_f, currentTarget_out_f, target_out_f, drop_f, modify_X = true, modify_Y = true, extraX, extraY)
+```
+
+dragAdd builds and `info` Object and pushes it in `dragList`. This `info` Object contains all information to manipulate the drag process.
+
+<details>
+
+<summary>Info:</summary>
+
+- `currentTarget` (id/class)
+- `target` (id/class)
+- `currentTarget_in_f` (start drag function)
+- `target_in_f` (start drag function)
+- `currentTarget_f` (while drag function)
+- `target_f` (while drag function)
+- `currentTarget_out_f` (end drag function)
+- `target_out_f` (end drag function)
+- `drop_f` (out of bounds function)
+- `modifyX` (default true) (flag to block X axis movement)
+- `modifyY` (default true) (flag to block Y axis movement)
+- `extraX` (default 0) (extra X offset (for resize purposes))
+- `extraY` (default 0) (extra Y offset (for resize purposes))
+
+</details>
+
+It also executes start drag functions for `currentTarget` and `target`.
+
+Simple drag event:
+```js
+currentTarget.addEventListener("mousedown", e => {
+    dragAdd(e, `#${currentTarget.id}`, `#${target.id}`);
+});
+```
+In this example you can make an object movable without callback functions.
+
+Return function example:
+```js
+const returnExample = (e, target, info) => {
+    target.style.transition = "transform 0.1s ease-in-out";
+    target.style.transform = null;
+}
+```
+
+Every callback function gets `e` (event), `target` (`currentTarget/target` Object), `info` (`info` Object of target)
+
+This function smoothly returns an object back to it's position, but exclude smoothnes on drag start let's drop `transition`.
+
+```js
+const dropTransition = (e, target, info) => {
+    target.style.transition = null;
+}
+```
+
+Now we can upgrade or code:
+```js
+currentTarget.addEventListener("mousedown", e => {
+    dragAdd(e, `#${currentTarget.id}`, `#${target.id}`, undefined, dropTransition, undefined, undefined, undefined, returnExample);
+});
+```
+
+If there's no function, just set it as `undefined`.
+
+`currentTarget` must be child of the `target` or even `target` itself. Otherwise it can cause unpredictable behavior. Also it's a possibility to create a remote manipulation functionality.
