@@ -13,7 +13,9 @@ All `icon-block` Objects are between `container` and `wl`.
 
 All `win-tab` Objects are in `tab-holder` inserted before `tab-add` Object.
 
-Dock underlines are connected with windows via `win_num_g` id, that is used while generation in `appBarGenerate`. Every window generation means incrementing this variable (`win_num_g`).
+Dock underlines are connected with windows via `win_id` id, that is used while generation in `Appbar` and extra functions via `Window.inc()`. 
+
+Every window generation means incrementing this variable (`win_did`).
 
 ![Window image](../../../static/img/demo-window.png)
 

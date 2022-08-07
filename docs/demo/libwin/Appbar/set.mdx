@@ -1,0 +1,35 @@
+---
+sidebar_position: 3
+---
+# set
+
+```js
+static set = list_l
+```
+
+`Appbar.set` looks for an Object defined in `Appbar.app_bar` and fills it with app Objects. It gets a list of apps with generation configs for each one.
+
+Example from demo:
+```js
+var apps_list = [
+	{
+		"title" : Filemanager.title, // window title
+		"src" : Filemanager.src, // appbar/window icon
+		"content" : Filemanager.content, // content for the window
+		"extraClass" : Filemanager.extraClass // extra classes for window (optional)
+	},
+    {
+        "content" : "hr"
+    },
+    {
+		"title" : Messages.title,
+		"src" : Messages.src,
+		"content" : Messages.content,
+		"listenerAdder" : Messages. // dynamic function for cloned apps
+	}
+}
+
+Appbar.set(apps_list);
+```
+
+It sets `#list` of apps with the given list to use it via `get` independent from the initial variable and origin.

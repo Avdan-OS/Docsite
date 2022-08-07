@@ -1,0 +1,21 @@
+---
+sidebar_position: 2
+---
+# drop
+
+```js
+static drop = (e, target)
+```
+
+`DragAndDrop.drop` is executed on `mouseup` event and uses `info` to end drag.
+
+`target` is required to catch `info` Object from `dragList`.
+
+Example:
+```js
+window.addEventListener("mouseup", e => {
+    DragAndDrop.drop(e, `#${target}`);
+});
+```
+
+The second argument should be the same as the third in `add`. 

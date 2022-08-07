@@ -1,13 +1,13 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
-# makeWindow
+# make
 
 ```js
-makeWindow = (content, icon_src, title, extraClass, makeClone, addPanel = true, addResize = true, listenerAdder = content => {})
+static make = (content, icon_src, title, extraClass, makeClone, addPanel = true, addResize = true, listenerAdder = content => {})
 ```
 
-`makeWindow` returns a window Object, that can be added to the page. Before adding it you can modify it.
+`Window.make` returns a window Object, that can be added to the page. Before adding it you can modify it.
 
 ## Arguments:
 
@@ -81,10 +81,10 @@ It allows to overpass cloning limitations and make windows dynamic.
 Simple window example:
 
 ```js
-makeWindow(filemanager_content, "src/image/filemanager.jpg",  "Filemanager");
+Window.make(filemanager_content, "src/image/filemanager.jpg",  "Filemanager");
 ```
 
 Adding window to the `body`:
 ```js
-document.body.appendChild(makeWindow(filemanager_content, "src/image/filemanager.jpg",  "Filemanager"));
+Workspace.add(Window.make(filemanager_content, "src/image/filemanager.jpg",  "Filemanager"));
 ```
