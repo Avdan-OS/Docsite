@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkavdan_os_docs=self.webpackChunkavdan_os_docs||[]).push([[8216],{9434:e=>{e.exports=JSON.parse('{"title":"Window Library","slug":"/category/window-library","permalink":"/demo/category/window-library","navigation":{"previous":{"title":"wipe","permalink":"/demo/libdrag/wipe"},"next":{"title":"About windows","permalink":"/demo/libwin/about"}}}')}}]);
