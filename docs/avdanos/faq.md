@@ -10,7 +10,7 @@ In the AvdanOS Community Discord Server bread is a big, big meme, we currently h
 
 
 <details><summary>Tech Stack</summary>
-First, for the Wayland Compositor, which will allow us to add a lot of awesome features, we will use Rust and more specifically Smithay (a library), egui smithay_client_toolkit.
+First, for the Wayland Compositor, which will allow us to add a lot of awesome features, we will use Rust and more specifically the Smithay lib. Meanwhile for the UI toolkit we'll use Rust with an easy and extensible UI library named egui
 
 Second of all, we might use other languages, such as C++ with their respective GUI libraries (for C++ it's Qt or Raylib... there are a lot of other options).
 
