@@ -1,13 +1,13 @@
 ---
 sidebar_position: 2
 ---
-# dragAdd
+# add
 
 ```js
-dragAdd = (e, currentTarget, target, currentTarget_in_f, target_in_f, currentTarget_f, target_f, currentTarget_out_f, target_out_f, drop_f, modify_X = true, modify_Y = true, extraX, extraY)
+static add = (e, currentTarget, target, currentTarget_in_f, target_in_f, currentTarget_f, target_f, currentTarget_out_f, target_out_f, drop_f, modify_X = true, modify_Y = true, extraX, extraY)
 ```
 
-dragAdd builds and `info` Object and pushes it in `dragList`. This `info` Object contains all information to manipulate the drag process.
+`DragAndDrop.add` builds `info` Object and pushes it in `dragList`. This `info` Object contains all information to manipulate the drag process.
 
 <details>
 
@@ -34,7 +34,7 @@ It also executes start drag functions for `currentTarget` and `target`.
 Simple drag event:
 ```js
 currentTarget.addEventListener("mousedown", e => {
-    dragAdd(e, `#${currentTarget.id}`, `#${target.id}`);
+    DragAndDrop.add(e, `#${currentTarget.id}`, `#${target.id}`);
 });
 ```
 In this example you can make an object movable without callback functions.
@@ -60,7 +60,7 @@ const dropTransition = (e, target, info) => {
 Now we can upgrade or code:
 ```js
 currentTarget.addEventListener("mousedown", e => {
-    dragAdd(e, `#${currentTarget.id}`, `#${target.id}`, undefined, dropTransition, undefined, undefined, undefined, returnExample);
+    DragAndDrop.add(e, `#${currentTarget.id}`, `#${target.id}`, undefined, dropTransition, undefined, undefined, undefined, returnExample);
 });
 ```
 

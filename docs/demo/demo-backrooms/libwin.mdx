@@ -11,32 +11,17 @@ This library is used to craete windows, store functions and generate dock elemen
 - __demo_body__
     - global `Object` that defines the demo body element
     - is used to set an embedded demo on a page
-- __current_workspace__ 
-    - global `integer` that defines the current workspace number
-    - can be used with id like `#workspace${current_workspace}`
-- __z_index_g__
-    - global `integer` value to control window visibility
-- __win_num_g__
-    - global `integer` window id iterator
-    - can be used with id like `#window${win_num_g}`
-- __apps_list__
-    - `array of association lists` with apps for app bar in dock
-    - see [appBarGenerate](../libwin/appBarGenerate)
-- __scroll_bar__
-    - `association list with index _pos_ and array` with scroll widgets in scroll bar in dock
-    - see [scrollBarGenerate](../libwin/scrollBarGenerate)
-- __keys__
-    - `array` of currently pressed keys
-    - great combination with `drag&drop`) (see [Keylogger](../libwin/keylogger)
 
 </details>
 
 <details>
-<summary>Library functions:</summary>
+<summary>Library classes:</summary>
 
-- [makeWindow](../libwin/makeWindow)
-- [appBarGenerate](../libwin/appBarGenerate)
-- [scrollBarGenerate](../libwin/scrollBarGenerate)
-- [setWorkspace](../libwin/setWorkspace)
+- [Window](../libwin/Window/about)
+- [Appbar](../libwin/Appbar/about)
+- [Scrollbar](../libwin/Scrollbar/about)
+- [Workspace](../libwin/Workspace/about)
+- [Layer](../libwin/Layer/about)
+- [Keylogger](../libwin/Keylogger/about)
 
 </details>

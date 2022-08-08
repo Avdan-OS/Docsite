@@ -6,10 +6,12 @@ sidebar_position: 2
 Demo website is fully written from scratch using `HTML/CSS/JS`, so it's near enough to the webdriver to implement any possible feature if you're really skilled.
 
 It has 3 main layers:
-1. [Drag library](libdrag)
+1. [Demo library](libdemo)
 2. [Window library](libwin)
-3. [Content generation and preparations](main-demo)
+3. [Drag library](libdrag)
 
-Upper layers can't use lower layers, but lower layers can call upper layers.
+Lower layers can't use upper layers, but upper layers can call lower layers.
+
+All the class methods, that aren't supposed to return a certain information, will return parent or expanded class.
 
 Let's discover, how all they work.
