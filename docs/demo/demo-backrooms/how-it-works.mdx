@@ -1,0 +1,15 @@
+---
+sidebar_position: 2
+---
+# Logic behind demo
+
+Demo website is fully written from scratch using `HTML/CSS/JS`, so it's near enough to the webdriver to implement any possible feature if you're really skilled.
+
+It has 3 main layers:
+1. [Drag library](libdrag)
+2. [Window library](libwin)
+3. [Content generation and preparations](main-demo)
+
+Upper layers can't use lower layers, but lower layers can call upper layers.
+
+Let's discover, how all they work.

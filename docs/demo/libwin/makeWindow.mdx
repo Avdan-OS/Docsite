@@ -1,0 +1,90 @@
+---
+sidebar_position: 2
+---
+# makeWindow
+
+```js
+makeWindow = (content, icon_src, title, extraClass, makeClone, addPanel = true, addResize = true, listenerAdder = content => {})
+```
+
+`makeWindow` returns a window Object, that can be added to the page. Before adding it you can modify it.
+
+## Arguments:
+
+<details>
+<summary>Content</summary>
+
+`content` can be any element like 
+```js
+var content = document.createElement("div");
+```
+You can modify it and send as an argument. 
+
+</details>
+
+<details>
+<summary>Icon Source</summary>
+
+`icon_src` is a url to the app icon.
+
+</details>
+
+<details>
+<summary>Title</summary>
+
+Window title.
+
+</details>
+
+<details>
+<summary>Extra Classes</summary>
+
+`extraClass` is an array of strings. All string will be added to the generated window as classes.
+```js
+["filemanager-window", "wide-window"]
+```
+
+</details>
+
+<details>
+<summary>Make Clone</summary>
+
+Bool flag. It's used to clone content and add it to multiple windows. (cloning objects makes them static and drops events).
+
+For more details check `Listener Adder`.
+
+</details>
+
+<details>
+<summary>Add Panel</summary>
+
+Bool flag. `false` to disable topbar. It will also change window class from `window` to `static-window`.
+
+</details>
+
+<details>
+<summary>Add Resize</summary>
+
+Bool flag. `false` to disable resizing.
+
+</details>
+
+<details>
+<summary>Listener Adder</summary>
+
+`listenerAdder` is a function, that gets `content` (after cloning). You can modify this content and it will be applied to the generated window.
+
+It allows to overpass cloning limitations and make windows dynamic.
+
+</details>
+
+Simple window example:
+
+```js
+makeWindow(filemanager_content, "src/image/filemanager.jpg",  "Filemanager");
+```
+
+Adding window to the `body`:
+```js
+document.body.appendChild(makeWindow(filemanager_content, "src/image/filemanager.jpg",  "Filemanager"));
+```

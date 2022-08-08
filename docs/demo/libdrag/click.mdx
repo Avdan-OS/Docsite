@@ -1,0 +1,21 @@
+---
+sidebar_position: 2
+---
+# click
+
+```js
+click = (e, target, currentTarget_f, target_f)
+```
+
+`click` is just an extended click event, that executes a function for `target` and `currentTarget`, when `currentTarget` is clicked. Rarely used. 
+
+Example directly from demo website:
+```js
+win_fullsize.addEventListener("click", e => {
+    click(e, `#${win.id}`, undefined, fullsize);
+});
+```
+
+When you click fullscreen button on the window, it becomes bigger. 
+
+This function just makes sometimes code faster and smaller.

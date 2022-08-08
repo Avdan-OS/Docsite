@@ -1,0 +1,23 @@
+---
+sidebar_position: 2
+---
+# drag
+
+```js
+drag = e
+```
+
+`drag` controls all movements iterating through `dragList`. Theoretically, it can move many objects at the same time as long as they are in `dragList`.
+
+To drop all objects without end drag you can `dragList = []`
+
+To enable dragging on a page you have to specify drag listener.
+
+Example:
+```js
+window.addEventListener("mousemove", drag);
+```
+
+That's all. There should exist only one global drag listener. It can be any object, but remember, that all drag events will be possible only inside of this object, so `window` is the best option.
+
+This function also executes while-drag functions for `currentTarget` and `target` Object. This functions are stored in `dragList`.
