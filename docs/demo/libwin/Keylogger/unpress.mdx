@@ -1,0 +1,19 @@
+---
+sidebar_position: 3
+---
+# unpress
+
+```js
+static unpress = (keyCode, func)
+```
+
+`Keylogger.unpress` is used to remove all actions with a key. `func` is optional but may be used to remove a certain key action.
+
+Example;
+```js
+Keylogger.press(23, sayHi);
+
+Keylogger.unpress(23);
+// or if you have many actions with the same key but you want to remove only one
+Keylogger.unpress(23, sayHi);
+```

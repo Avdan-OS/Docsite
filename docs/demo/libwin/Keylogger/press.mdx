@@ -1,0 +1,24 @@
+---
+sidebar_position: 3
+---
+# press
+
+```js
+static press = (keyCode, func)
+```
+
+`Keylogger.press` adds a new action to the `#list`.
+
+`func` gets `e` as event, `item` as information about this action.
+
+Example:
+```js
+const sayHi = (e, info) => {
+    var keys = Keylogger.getKeys();
+    if (keys.incldues(16)) {
+        console.log(`Hi, you pressed Ctrl and ${e.code}`);
+    }
+}
+
+Keylogger.press(32, sayHi); // on Ctrl + Space it will call this function
+```

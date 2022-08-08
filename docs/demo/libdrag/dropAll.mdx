@@ -1,0 +1,17 @@
+---
+sidebar_position: 2
+---
+# dropAll
+
+```js
+static dropAll = e
+```
+
+`DragAndDrop.dropAll` is used to drop all objects as if it was `drop` for every `dragList` item, but in `add` you can specify a `drop_f` function, that will be executed only in this function.
+
+It's mostly used to drop all objects if cursor leaves page while dragging something to exclude unexpected behavior.
+
+Example:
+```js
+demo_body.addEventListener("mouseleave", DragAndDrop.dropAll});
+```

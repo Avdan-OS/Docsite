@@ -1,0 +1,31 @@
+---
+sidebar_position: 2
+---
+# Drag&Drop library
+
+That's the lowest library, that controls drag&drop events.
+
+It manipulates directly the objects through CSS `transform`, so all transform changes can be applied only to the other elements except dragged one (may change with library upgrades).
+
+All dragged objects are stored in `dragList` _(private array variable)_ as __Objects__ (info). More info about it is [here](../libdrag/about)
+
+`CurrentTarget` is an object, that can be impacted, and `target` is the object that's being moved. 
+
+Example: topbar - `currentTarget`, window - `target`
+
+Explaining simpler: `add -> listen -> drop`
+
+<details>
+<summary>Library functions:</summary>
+
+- [add](../libdrag/add)
+- [listen](../libdrag/listen)
+- [drop](../libdrag/drop)
+- [dropAll](../libdrag/dropAll)
+- [click](../libdrag/click)
+- [get](../libdrag/get)
+- [wipe](../libdrag/wipe)
+
+</details>
+
+All the examples are only examples, you can use this library in the way you want, limited only with your creativity and skills.
