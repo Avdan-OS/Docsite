@@ -7,7 +7,7 @@ sidebar_position: 3
 static press = (keyCode, func)
 ```
 
-`Keylogger.press` adds a new action to the `#list`.
+`Keylogger.press` adds a new action to the private list.
 
 `func` gets `e` as event, `item` as information about this action.
 
@@ -20,5 +20,5 @@ const sayHi = (e, info) => {
     }
 }
 
-Keylogger.press(32, sayHi); // on Ctrl + Space it will call this function
+Keylogger.press(32, sayHi); // on Ctrl + Space it will output message
 ```
