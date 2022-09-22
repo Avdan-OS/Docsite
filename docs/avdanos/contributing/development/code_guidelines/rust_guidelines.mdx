@@ -68,11 +68,11 @@ fn to_ascii(let my_var: i32) -> i32;
 
 ## Variables
 
-#### Always declare EXPLICITLY the type of a variable.
+#### Declare EXPLICITLY the type of a variable.
 
-:::tip
+:::caution
 
-Do the same thing for functions
+Explicit types are not obligatory, but are recommended
 
 :::
 
@@ -150,4 +150,31 @@ fn function(x: i32) -> i32 {
 fn function(x: i32) -> i32 {
     return x;
 }
+```
+
+## Imports
+
+#### When importing multiple variables separate any library in multiple lines
+
+:::tip
+
+Sort the imports by name and always add a `,` at the end of a library
+
+:::
+
+
+**Do ✅**:
+
+```rs
+use clap::{
+    Arg,
+    ArgAction,
+    Command,
+};
+```
+
+**Don't ❌**:
+
+```rs
+use x::{Command, Arg, ArgAction};
 ```
