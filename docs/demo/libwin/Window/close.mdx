@@ -4,12 +4,12 @@ sidebar_position: 3
 # close
 
 ```js
-static close = (e, win)
+static close = (e, ...args)
 ```
 
-`Window.close` is used to close a window. If Object is not a window, it will ireturn 1 and output an error.
+`Window.close` is used to close windows. If Object is not a window, it will throw an `Error`.
 
 Example:
 ```js
-Window.close(e, win); // e - event
+Window.close(e, win1, win2, ...); // e - event (can be undefined)
 ```

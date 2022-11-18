@@ -1,0 +1,22 @@
+---
+sidebar_position: 3
+---
+# merge
+
+```js
+static merge = (main_win, ...args)
+```
+
+`Window.merge` is used to merge some windows into a single one. If `main_win` is not a window, it will throw an `Error`.
+
+You may mix windows with boolean flags to change tilling visibility after merging.
+
+By default, all merged windows are visible.
+
+Example:
+```js
+// Merge win1 and win2 with main_win
+
+// win1 will be visible after merging and win2 will be hidden, but may be accessed via a tab in a top bar 
+Window.merge(main_win, win1, false, win2, ...); 
+```
