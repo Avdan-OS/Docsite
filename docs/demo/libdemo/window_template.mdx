@@ -31,7 +31,7 @@ class MyApp {
 
 	
 	static {
-        // some JS code to fill 'content' variable
+        // some JS code to fill the 'content' variable
 
         // Example 
         var my_app_content = document.createElement("div");
@@ -64,7 +64,7 @@ Here's our app.
 
 ### onclone works with clones
 
-By default, dock uses cloning to open multiple apps each with it's own context, so `onclone` is needed to load dynamic elements, while `content` is just a static template. 
+By default, dock uses cloning to open multiple apps each with its own context, so `onclone` is needed to load dynamic elements, while `content` is just a static template. 
 
 `onclone` gets a cloned `content` as an argument, so it's a clone of your static template, not your initial `content` variable from class.
 
@@ -74,7 +74,7 @@ There are 2 steps to add your app to the demo (ex.: dock):
 
 1. Load JS script
 
-Open `index.html`, go to the `head` tag and add your JS script like:
+Open `index.html`, go to the `head` tag, and add your JS script like:
 
 ```html
     <head>
@@ -109,7 +109,7 @@ Open `index.html`, go to the `head` tag and add your JS script like:
 
 2. Place it in dock
 
-As an example, our app will be added to dock. We need to open `demo.js`, find there `apps_list` array and place there our app.
+As an example, our app will be added to dock. We need to open `demo.js`, find there `apps_list` array, and place there our app.
 
 All apps are loaded from the first to the last, so your position depends on the place you've chosen.
 

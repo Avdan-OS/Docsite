@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 ---
+
 # press
 
 ```js
@@ -9,27 +10,28 @@ static press = (keyCode, ...args)
 
 `Keylogger.press` adds a new action to the private list.
 
-You can add multiple function per call.
+You can add multiple functions per call.
 
 Functions from `...args` get `e` as event information and `info` as information about this actions configs.
 
 Example:
+
 ```js
 const sayHi = (e, info) => {
-    var keys = Keylogger.getKeys();
-    if (keys.incldues(16)) {
-        console.log(`Hi, you pressed Ctrl and ${e.code}`);
-    }
-}
+  var keys = Keylogger.getKeys();
+  if (keys.includes(16)) {
+    console.log(`Hi, you pressed Ctrl and ${e.code}`);
+  }
+};
 
 const someonesSayHi = (e, info) => {
-    var keys = Keylogger.getKeys();
-    if (keys.incldues(17)) {
-        console.log(`Hi, you pressed Shift and ${e.code}`);
-    }
-}
+  var keys = Keylogger.getKeys();
+  if (keys.includes(17)) {
+    console.log(`Hi, you pressed Shift and ${e.code}`);
+  }
+};
 
 Keylogger.press(32, sayHi, someonesSayHi); // on Ctrl + Space or Shift + Space it will output message
 ```
 
-Better avoid spliting actions in multiple functions too much.
+Better avoid splitting actions into multiple functions too much.

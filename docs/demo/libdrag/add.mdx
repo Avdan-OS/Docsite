@@ -37,7 +37,7 @@ currentTarget.addEventListener("mousedown", e => {
     DragAndDrop.add(e, `#${currentTarget.id}`, `#${target.id}`);
 });
 ```
-In this example you can make an object movable without callback functions.
+In this example, you can make an object movable without callback functions.
 
 Return function example:
 ```js
@@ -49,7 +49,7 @@ const returnExample = (e, target, info) => {
 
 Every callback function gets `e` (event), `target` (`currentTarget/target` Object), `info` (`info` Object of target)
 
-This function smoothly returns an object back to it's position, but excludes smoothness on drag start.
+This function smoothly returns an object to its position but excludes smoothness on drag start.
 
 ```js
 const dropTransition = (e, target, info) => {
@@ -66,4 +66,4 @@ currentTarget.addEventListener("mousedown", e => {
 
 If there's no function, just set it as `undefined`.
 
-`currentTarget` must be child of the `target` or even `target` itself. Otherwise it can cause unpredictable behavior. Also it's a possibility to create a remote manipulation functionality.
+`currentTarget` must be child of the `target` or even `target` itself. Otherwise, it can cause unpredictable behavior. Also, it's a possibility to create a remote manipulation functionality.
