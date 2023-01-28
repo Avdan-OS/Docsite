@@ -58,10 +58,10 @@ const config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'nadva',
-        path: 'docs/nadva',
-        routeBasePath: 'nadva',
-        sidebarPath: require.resolve('./sidebar/nadva.js'),
+        id: 'navda',
+        path: 'docs/navda',
+        routeBasePath: 'navda',
+        sidebarPath: require.resolve('./sidebar/navda.js'),
         // ... other options
       },
     ],
@@ -107,9 +107,9 @@ const config = {
             label: 'Project AvdanOS',
           },
           {
-            to: 'nadva/nadva-intro',
+            to: 'navda/navda-intro',
             position: 'left',
-            label: 'Nadva',
+            label: 'Navda',
           },
           {
             to: 'tinan/tinan-overview',
@@ -153,8 +153,8 @@ const config = {
                 to: '/docs/intro',
               },
               {
-                label: 'Nadva',
-                to: '/nadva/nadva-intro',
+                label: 'Navda',
+                to: '/navda/navda-intro',
               },
               {
                 label: 'Tinan',

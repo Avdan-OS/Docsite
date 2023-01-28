@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx'
 import styles from './styles.module.css'
 import Translate, { translate } from '@docusaurus/Translate'
-import nadva_img from '../../../static/img/card-nadva.png'
+import navda_img from '../../../static/img/card-navda.png'
 import tinan_img from '../../../static/img/card-tinan.png'
 import website_img from '../../../static/img/card-website.png'
 const ReposList = [
@@ -16,10 +16,10 @@ const ReposList = [
   },
   {
     title: 'Desktop Environment',
-    description: 'Meet Nadva, the official Desktop Environment for AvdanOS.',
-    imageUrl: nadva_img,
+    description: 'Meet Navda, the official Desktop Environment for AvdanOS.',
+    imageUrl: navda_img,
     githubUrl: 'https://github.com/Avdan-OS/Website',
-    docUrl: '/nadva/nadva-intro',
+    docUrl: '/navda/navda-intro',
   },
   {
     title: 'Tinan',
