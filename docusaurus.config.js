@@ -152,7 +152,7 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.gg/avdanos',
+                href: 'https://avdanos.org/discord',
               },
               {
                 label: 'YouTube',
