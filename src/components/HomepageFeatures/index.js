@@ -3,7 +3,6 @@ import clsx from 'clsx'
 import styles from './styles.module.css'
 import Translate, { translate } from '@docusaurus/Translate'
 import navda_img from '../../../static/img/card-navda.png'
-import tinan_img from '../../../static/img/card-tinan.png'
 import website_img from '../../../static/img/card-website.png'
 const ReposList = [
   {
@@ -15,18 +14,11 @@ const ReposList = [
     docUrl: '/website/website-overview',
   },
   {
-    title: 'Desktop Environment',
-    description: 'Meet Navda, the official Desktop Environment for AvdanOS.',
+    title: 'Wayland Compositor',
+    description: 'Meet Navda, the official Wayland Compositor for AvdanOS.',
     imageUrl: navda_img,
-    githubUrl: 'https://github.com/Avdan-OS/Website',
+    githubUrl: 'https://github.com/Avdan-OS/Compositor',
     docUrl: '/navda/navda-intro',
-  },
-  {
-    title: 'Tinan',
-    description: 'A Discord Bot Made for the AvdanOS Community Discord server.',
-    imageUrl: tinan_img,
-    githubUrl: 'https://github.com/Avdan-OS/Website',
-    docUrl: '/tinan/tinan-overview',
   },
 ]
 
