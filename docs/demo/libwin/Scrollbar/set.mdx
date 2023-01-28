@@ -7,7 +7,7 @@ sidebar_position: 3
 static set = list_l
 ```
 
-`Scrollbar.set` looks for Object defined in `Scrollbar.scroll_bar` and fills it with a widget from `items` due to `pos` index.
+`Scrollbar.set` looks for Object defined in `Scrollbar.scroll_bar` and fills dock element with a widget from `items` due to `pos` index.
 
 It also has a `wheel` event, that refreshes scrollbar every time it's scrolled with holded Shift.
 
@@ -24,6 +24,6 @@ var scroll_list = {
 Scrollbar.set(scroll_list);
 ```
 
-It sets `#list` with the given list to use it in `window.js` via `get` independent from the initial variable and origin.
+It sets internal widgets list with the given list to use it in `window.js` via `get` independent from the initial variable and origin.
 
 Scrollbar scrolling just changes `pos` and recreates scrollbar.

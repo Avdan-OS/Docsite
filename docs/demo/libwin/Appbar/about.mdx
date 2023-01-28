@@ -5,6 +5,24 @@ sidebar_position: 3
 
 `Appbar` class is used to fill appbar and control apps in the dock.
 
-It has 2 methods: [get](get) and [set](set)
-
 `set` is used to set apps in the appbar and `get` is used to get current apps list.
+
+It also has to extra variables:
+
+1. `Appbar.Split` is variable, that holdds a template for a split line.
+
+Example: 
+
+```js
+var apps_list = [
+    // some apps before line 
+
+	Appbar.Split,
+
+    // some apps after line
+]
+```
+
+2. `Appbar.appbar` contains a string reference to the appbar element. 
+
+Use it with `querySelector`.

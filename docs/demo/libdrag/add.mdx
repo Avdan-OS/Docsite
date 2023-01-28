@@ -49,7 +49,7 @@ const returnExample = (e, target, info) => {
 
 Every callback function gets `e` (event), `target` (`currentTarget/target` Object), `info` (`info` Object of target)
 
-This function smoothly returns an object back to it's position, but exclude smoothnes on drag start let's drop `transition`.
+This function smoothly returns an object back to it's position, but excludes smoothness on drag start.
 
 ```js
 const dropTransition = (e, target, info) => {
@@ -57,7 +57,7 @@ const dropTransition = (e, target, info) => {
 }
 ```
 
-Now we can upgrade or code:
+Now we can upgrade our code:
 ```js
 currentTarget.addEventListener("mousedown", e => {
     DragAndDrop.add(e, `#${currentTarget.id}`, `#${target.id}`, undefined, dropTransition, undefined, undefined, undefined, returnExample);
