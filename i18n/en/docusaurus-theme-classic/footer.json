@@ -72,7 +72,7 @@
     "description": "The label of footer link with label=Download linking to https://avdanos.com/downloads"
   },
   "copyright": {
-    "message": "Copyright © 2022 Avdan OS Community. Built with Docusaurus.",
+    "message": "© Copyright Avdan OS Contributors 2023. Built with Docusaurus.",
     "description": "The footer copyright"
   }
 }
