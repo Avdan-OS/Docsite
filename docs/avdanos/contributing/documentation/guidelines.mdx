@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
 ---
-
 # Documentation Guidelines
 
 <Notice type="wip" url="/docs/avdanos/contributing/documentation/guidelines.mdx" />
 
 As with any project, the documentation is very important to keep it organized.
 This section will go through the guidelines of our documentation.
+
 
 ## 1. Use Clear Language
 
@@ -31,96 +31,80 @@ If you need to, split your ideas into multiple paragraphs, or even multiple docu
 Try not to explore more than one main topic on a single page.
 
 <table>
-  <thead>
-    <tr>
-      <th>Do ✅</th>
-      <th>Don't ❌</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <p>navda is the display server of the AvdanOS project, implemented in Wayland.</p>
-        <p>Wayland is an alternative to the older X Server standard which lets...</p>
-      </td>
-      <td>
-        <p> navda is the display server of the AvdanOS project, implemented in Wayland. Wayland is a protocol alternative to the older X Server standard which lets...</p>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>Do ✅</th>
+            <th>Don't ❌</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>Nadva is the display server of the AvdanOS project, implemented in Wayland.</p>
+                <p>Wayland is an alternative to the older X Server standard which lets...</p>
+            </td>
+            <td>
+                <p> Nadva is the display server of the AvdanOS project, implemented in Wayland. Wayland is a protocol alternative to the older X Server standard which lets...</p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ## 2. Be Helpful
-
 When reading documentation, users may often want to learn more about the
 various topics mentioned on the page or may want further clarification. We can help make the documentation
 easier to read by doing the following:
 
 ### 2 (a) Highlight Keywords
-
-Use _italics_ or **bold** to help make keywords stand out.
+Use *italics* or **bold** to help make keywords stand out.
 
 <table>
-  <thead>
-    <tr>
-      <th>Do ✅</th>
-      <th>Don't ❌</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <p>
-          navda is the display server of the AvdanOS project, implemented in <i>Wayland</i>.
-        </p>
-        <p>
-          The Wayland protocol is an alternative to the older <i>X Server</i> standard which lets...
-        </p>
-      </td>
-      <td>
-        <p>navda is the display server of the AvdanOS project, implemented in Wayland.</p>
-        <p>Wayland is a protocol alternative to the older X Server standard which lets.</p>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>Do ✅</th>
+            <th>Don't ❌</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>Nadva is the display server of the AvdanOS project, implemented in <i>Wayland</i>.</p>
+                <p>The Wayland protocol is an alternative to the older <i>X Server</i> standard which lets...</p>
+            </td>
+            <td>
+                <p>Nadva is the display server of the AvdanOS project, implemented in Wayland.</p>
+                <p>Wayland is a protocol alternative to the older X Server standard which lets.</p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ### 2 (b) Link to external sources
-
 External links help guide users to places with more specificity on certain topics.
 You must make sure the source is trustworthy.
 
 <table>
-  <thead>
-    <tr>
-      <th>Do ✅</th>
-      <th>Don't ❌</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <p>
-          navda is the display server of the AvdanOS project, implemented in <i>Wayland</i>.
-        </p>
-        <p>
-          The <a href="https://wayland.freedesktop.org/">Wayland protocol</a> is an alternative to the older <a href="https://www.x.org/wiki/">X Server</a> standard which lets...
-        </p>
-      </td>
-      <td>
-        <p>
-          navda is the display server of the AvdanOS project, implemented in <i>Wayland</i>.
-        </p>
-        <p>
-          Wayland is a protocol alternative to the older <i>X Server</i> standard which lets.
-        </p>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>Do ✅</th>
+            <th>Don't ❌</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <p>Nadva is the display server of the AvdanOS project, implemented in <i>Wayland</i>.</p>
+                <p>The <a href="https://wayland.freedesktop.org/">Wayland protocol</a> is an alternative to the older <a href="https://www.x.org/wiki/">X Server</a> standard which lets...</p>
+            </td>
+            <td>
+                <p>Nadva is the display server of the AvdanOS project, implemented in <i>Wayland</i>.</p>
+                <p>Wayland is a protocol alternative to the older <i>X Server</i> standard which lets.</p>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ### 2 (c) Provide Examples
-
 Examples show users how to achieve a specific goal. They should be specific, and any code featured should both be easy to read and also behave as described.
 
 :::tip
@@ -130,34 +114,33 @@ Reference [this Docusaurus Section](https://docusaurus.io/docs/markdown-features
 **Do ✅**:
 
 ```js title="Stats API — Get the number of AvdanOS downloads"
-fetch("https://api.avdanos.com/stats/downloads", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: "Bearer " + token, // <--- AvdanOS API token
-  },
-})
-  .then((res) => res.json())
-  .then(console.log);
+fetch("https://api.avdanos.com/stats/downloads",
+    {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token, // <--- AvdanOS API token
+        },
+    }
+)
+    .then(res => res.json())
+    .then(console.log);
 ```
 
 **Don't ❌**:
 
 ```js
-fetch("https://api.avdanos.com/stats/downloads", { method: "GET", headers: { "Content-Type": "application/json", Authorization: "Bearer " + token /* <--- AvdanOS API token */ } })
-  .then((res) => res.json())
-  .then(console.log);
+fetch("https://api.avdanos.com/stats/downloads", { method: "GET", headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token, /* <--- AvdanOS API token */ },}).then(res => res.json()).then(console.log);
 ```
 
 ### 2 (d) Use Multimedia
-
 > A picture is worth a thousand words.
 
 Sometimes, it may be helpful to include pictures and/or videos on a page to help further visualize an idea.
 These media must not take too long to load, or hinder the user experience.
 
-| Do ✅                   | Don't ❌                                                                            |
-| ----------------------- | ----------------------------------------------------------------------------------- |
+| Do ✅ | Don't ❌ |
+| ----- | --------- |
 | Include relevant media. | Include media that is too long, not relevant to the topic, or too big in file size. |
 
 :::tip
@@ -166,11 +149,9 @@ Process your content before including it in your documentation such as by compre
 Tools like [FFmpeg](https://ffmpeg.org/) are especially useful when processing video.
 
 An example command:
-
 ```bash title="Take 1:40 to 1:50 of input.mp4, remove audio, and compress the clip to WEBM."
 ffmpeg -i 'input.mp4' -ss 1:40 -t 0:10 -vf scale=1920:1080 -c:v vp9 -an output.webm
 ```
-
 :::
 
 :::tip
