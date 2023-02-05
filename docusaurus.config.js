@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -58,10 +58,10 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "nadva",
-        path: "docs/nadva",
-        routeBasePath: "nadva",
-        sidebarPath: require.resolve("./sidebar/nadva.js"),
+        id: "navda",
+        path: "docs/navda",
+        routeBasePath: "navda",
+        sidebarPath: require.resolve("./sidebar/navda.js"),
         // ... other options
       },
     ],
@@ -72,16 +72,6 @@ const config = {
         path: "docs/demo",
         routeBasePath: "demo",
         sidebarPath: require.resolve("./sidebar/demo.js"),
-        // ... other options
-      },
-    ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
-        id: "apps",
-        path: "docs/apps",
-        routeBasePath: "apps",
-        sidebarPath: require.resolve("./sidebar/apps.js"),
         // ... other options
       },
     ],
@@ -107,19 +97,14 @@ const config = {
             label: "Project AvdanOS",
           },
           {
-            to: "nadva/nadva-intro",
+            to: "navda/navda-intro",
             position: "left",
-            label: "Nadva",
+            label: "Navda",
           },
           {
             to: "demo/demo-intro",
             position: "left",
             label: "Demo",
-          },
-          {
-            to: "apps/apps-intro",
-            position: "left",
-            label: "Apps",
           },
           {
             href: "https://github.com/Avdan-OS",
@@ -153,16 +138,12 @@ const config = {
                 to: "/docs/intro",
               },
               {
-                label: "Nadva",
-                to: "/nadva/nadva-intro",
+                label: "Navda",
+                to: "/navda/navda-intro",
               },
               {
                 label: "Demo",
                 to: "/demo/demo-intro",
-              },
-              {
-                label: "Apps",
-                to: "/apps/apps-intro",
               },
             ],
           },
@@ -171,7 +152,7 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "https://discord.gg/avdanos",
+                href: "https://avdanos.org/discord",
               },
               {
                 label: "YouTube",
