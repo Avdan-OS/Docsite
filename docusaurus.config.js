@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -58,10 +58,10 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "nadva",
-        path: "docs/nadva",
-        routeBasePath: "nadva",
-        sidebarPath: require.resolve("./sidebar/nadva.js"),
+        id: "navda",
+        path: "docs/navda",
+        routeBasePath: "navda",
+        sidebarPath: require.resolve("./sidebar/navda.js"),
         // ... other options
       },
     ],
@@ -107,9 +107,9 @@ const config = {
             label: "Project AvdanOS",
           },
           {
-            to: "nadva/nadva-intro",
+            to: "navda/navda-intro",
             position: "left",
-            label: "Nadva",
+            label: "navda",
           },
           {
             to: "demo/demo-intro",
@@ -153,8 +153,8 @@ const config = {
                 to: "/docs/intro",
               },
               {
-                label: "Nadva",
-                to: "/nadva/nadva-intro",
+                label: "navda",
+                to: "/navda/navda-intro",
               },
               {
                 label: "Demo",

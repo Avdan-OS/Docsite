@@ -23,17 +23,17 @@
     "message": "FAQ",
     "description": "The label of footer link with label=FAQ linking to /docs/faq"
   },
-  "link.item.label.Nadva": {
-    "message": "Nadva",
-    "description": "The label of footer link with label=Nadva linking to /nadva/nadva-intro"
+  "link.item.label.navda": {
+    "message": "navda",
+    "description": "The label of footer link with label=navda linking to /navda/navda-intro"
   },
   "link.item.label.Multitasking": {
     "message": "Multitasking",
-    "description": "The label of footer link with label=Multitasking linking to /nadva/category/multitasking-in-avdanos"
+    "description": "The label of footer link with label=Multitasking linking to /navda/category/multitasking-in-avdanos"
   },
   "link.item.label.Personalization": {
     "message": "Personalization",
-    "description": "The label of footer link with label=Personalization linking to /nadva/category/personalization"
+    "description": "The label of footer link with label=Personalization linking to /navda/category/personalization"
   },
   "link.item.label.Discord": {
     "message": "Discord",
@@ -72,7 +72,7 @@
     "description": "The label of footer link with label=Download linking to https://avdanos.com/downloads"
   },
   "copyright": {
-    "message": "Copyright © 2022 Avdan OS Community. Built with Docusaurus.",
+    "message": "© Copyright Avdan OS Contributors 2023. Built with Docusaurus.",
     "description": "The footer copyright"
   }
 }
