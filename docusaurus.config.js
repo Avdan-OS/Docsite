@@ -68,16 +68,6 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "tinan",
-        path: "docs/tinan",
-        routeBasePath: "tinan",
-        sidebarPath: require.resolve("./sidebar/tinan.js"),
-        // ... other options
-      },
-    ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
         id: "demo",
         path: "docs/demo",
         routeBasePath: "demo",
@@ -120,11 +110,6 @@ const config = {
             to: "nadva/nadva-intro",
             position: "left",
             label: "Nadva",
-          },
-          {
-            to: "tinan/tinan-overview",
-            position: "left",
-            label: "Tinan",
           },
           {
             to: "demo/demo-intro",
@@ -170,10 +155,6 @@ const config = {
               {
                 label: "Nadva",
                 to: "/nadva/nadva-intro",
-              },
-              {
-                label: "Tinan",
-                to: "/tinan/tinan-overview",
               },
               {
                 label: "Demo",

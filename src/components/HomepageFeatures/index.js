@@ -3,7 +3,6 @@ import clsx from 'clsx'
 import styles from './styles.module.css'
 import Translate, { translate } from '@docusaurus/Translate'
 import nadva_img from '../../../static/img/card-nadva.png'
-import tinan_img from '../../../static/img/card-tinan.png'
 import website_img from '../../../static/img/card-website.png'
 const ReposList = [
   {
@@ -20,13 +19,6 @@ const ReposList = [
     imageUrl: nadva_img,
     githubUrl: 'https://github.com/Avdan-OS/Website',
     docUrl: '/nadva/nadva-intro',
-  },
-  {
-    title: 'Tinan',
-    description: 'A Discord Bot Made for the AvdanOS Community Discord server.',
-    imageUrl: tinan_img,
-    githubUrl: 'https://github.com/Avdan-OS/Website',
-    docUrl: '/tinan/tinan-overview',
   },
 ]
 

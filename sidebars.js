@@ -3,11 +3,6 @@ module.exports = {
     // Normal syntax:
     {
       type: "doc",
-      id: "tinan", // document ID
-      label: "Tinan", // sidebar label
-    },
-    {
-      type: "doc",
       id: "apps", // document ID
       label: "Apps", // sidebar label
     },
