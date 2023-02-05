@@ -70,7 +70,7 @@ See? Make a balance between simplicity and detail, using colors, shadows, depth,
 
 To design your icon, use these boundaries:
 ![OXYDE Icon Guidelines](Docsite/static/img/Icon Guidelines.png)
-<a href="GH URL HERE" target="_blank" class="button">Download SVG from GitHub</a>
+<a href="https://github.com/Avdan-OS/icons/blob/main/templates/Icon%20template/Icon%20Guidelines.svg" target="_blank" class="button">Download SVG from GitHub</a>
 
 ## Symbolic icons
 The symbolic icon is, as the own name says, a symbol that represents the program. It's used in certain menus, so you will need one or AvdanOS won't be able to display it.
