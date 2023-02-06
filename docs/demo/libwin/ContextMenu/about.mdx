@@ -5,7 +5,7 @@ sidebar_position: 3
 
 `ContextMenu` class is used to create a custom context menu for your app. It can be applied to any element or window, so you may create specific menus for any window and elements inside it.
 
-It can't be directly accessed. For more information and examples how to add a context menu to the app, go [here](../../libdemo/window_template).
+It can't be directly accessed. For more information and examples of how to add a context menu to the app, go [here](../../libdemo/window_template).
 
 Adding a context menu to an element:
 ```js
@@ -27,9 +27,9 @@ anyElement.contextMenu = [
 ]
 ```
 
-If there's no context menu for element, `ContextMenu` loop will check the next element in the path.
+If there's no context menu for the element, `ContextMenu` loop will check the next element in the path.
 
 Example:
 Element -> Element Holder -> Your App -> Workspace -> Demo
 
-It will loop through path array till it finds any context menu. By default, Demo will have default context menu applied.
+It will loop through the path array till it finds any context menu. By default, Demo will have a default context menu applied.

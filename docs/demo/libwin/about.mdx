@@ -3,17 +3,17 @@ sidebar_position: 2
 ---
 # About windows
 
-Any Object can be considered as a window, if it has `win-tab`, `content-holder` and `icon-block` and all with the same `win_num_g` id number.
+Any Object can be considered as a window if it has a `win-tab`, `content-holder` and `icon-block` and all with the same `win_num_g` id number.
 
-You can spawn embeded windows using this by calling `makeWindow` and modifing it's output.
+You can spawn embedded windows using this by calling `makeWindow` and modifying its output.
 
-All `content-holder` Objects are in the window's `container`. This gives a tilling oportunity. 
+All `content-holder` Objects are in the window's `container`. This gives a tilling opportunity. 
 
 All `icon-block` Objects are between `container` and `wl`.
 
-All `win-tab` Objects are in `tab-holder` inserted before `tab-add` Object.
+All `win-tab` Objects are in the `tab-holder` inserted before the `tab-add` Object.
 
-Dock underlines are connected with windows via `win_id` id, that is used while generation in `Appbar`. 
+Dock underlines are connected with windows via `win_id` id, which is used while generation in `Appbar`. 
 
 Every window generation means incrementing this variable (`win_id`).
 
@@ -21,6 +21,6 @@ Every window generation means incrementing this variable (`win_id`).
 
 `icon-block` Objects are used to show icons in insert mode. They can be blank.
 
-`content-holder` is used to limit content size and to give possibility to move it in different windows.
+`content-holder` is used to limit the content size and to give the possibility to move it in different windows.
 
-`win-tab` is used to manipulate window in inserted mode.
+`win-tab` is used to manipulate the window in inserted mode.

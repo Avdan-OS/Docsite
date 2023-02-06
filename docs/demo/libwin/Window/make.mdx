@@ -18,16 +18,16 @@ static make = (content, icon_src, title, extraClass, contextMenu, makeClone, add
 ```js
 var content = document.createElement("div");
 ```
-You can modify it and send as an argument.
+You can modify it and send it as an argument.
 
-For more details check template sections in demo library.
+For more details check the template sections in the demo library.
 
 </details>
 
 <details>
 <summary>Icon Source</summary>
 
-`icon_src` is an url to the app icon.
+`icon_src` is an URL to the app icon.
 
 </details>
 
@@ -41,7 +41,7 @@ Window title.
 <details>
 <summary>Extra Classes</summary>
 
-`extraClass` is an array of strings. All string will be added to the generated window as classes.
+`extraClass` is an array of strings. All strings will be added to the generated window as classes.
 ```js
 ["filemanager-window", "wide-window"]
 ```
@@ -105,7 +105,7 @@ Bool flag. `false` to disable resizing.
 
 `listenerAdder` is a function, that gets `content` (after cloning). You can modify this content and it will be applied to the generated window.
 
-It allows to overpass cloning limitations and make windows dynamic.
+It allows us to overpass cloning limitations and make windows dynamic.
 
 </details>
 
@@ -120,4 +120,4 @@ Adding window to the `body`:
 Workspace.add(Window.make(filemanager_content, "src/image/filemanager.jpg",  "Filemanager"));
 ```
 
-For more info about how to create an app, go to the template sections in demo library.
+For more info about how to create an app, go to the template sections in the demo library.
