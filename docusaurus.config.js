@@ -75,6 +75,16 @@ const config = {
         // ... other options
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "apps",
+        path: "docs/apps",
+        routeBasePath: "apps",
+        sidebarPath: require.resolve("./sidebar/apps.js"),
+        // ... other options
+      },
+    ],
   ],
 
   themeConfig:
