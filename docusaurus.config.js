@@ -75,6 +75,16 @@ const config = {
         // ... other options
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "apps",
+        path: "docs/apps",
+        routeBasePath: "apps",
+        sidebarPath: require.resolve("./sidebar/apps.js"),
+        // ... other options
+      },
+    ],
   ],
 
   themeConfig:
@@ -105,6 +115,11 @@ const config = {
             to: 'demo/demo-intro',
             position: 'left',
             label: 'Demo',
+          },
+          {
+            to: 'apps/apps-intro',
+            position: 'left',
+            label: 'Apps',
           },
           {
             href: 'https://github.com/Avdan-OS',
@@ -144,6 +159,10 @@ const config = {
               {
                 label: 'Demo',
                 to: '/demo/demo-intro',
+              },
+              {
+                label: 'Apps',
+                to: '/apps/apps-intro',
               },
             ],
           },
