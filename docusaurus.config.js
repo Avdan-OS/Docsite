@@ -107,6 +107,11 @@ const config = {
             label: 'Demo',
           },
           {
+            to: 'apps/apps-intro',
+            position: 'left',
+            label: 'Apps',
+          },
+          {
             href: 'https://github.com/Avdan-OS',
             position: 'right',
             className: 'header-github-link',
@@ -144,6 +149,10 @@ const config = {
               {
                 label: 'Demo',
                 to: '/demo/demo-intro',
+              },
+              {
+                label: 'Apps',
+                to: '/apps/apps-intro',
               },
             ],
           },
