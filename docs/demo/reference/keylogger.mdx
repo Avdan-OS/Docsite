@@ -1,0 +1,49 @@
+---
+sidebar_position: 3
+---
+# Keylogger
+
+```ts
+import { KeyloggerService } from "@lib/keylogger";
+```
+
+`KeyloggerService` is a global, static service for keyboard shortcuts. It tracks which physical keys (`KeyboardEvent.code`, for example `KeyA` or `ShiftLeft`) are held and runs a handler at the moment the last key of a combination goes down.
+
+## Rules
+
+- It is a static singleton. The listeners are attached to `window` once, when the module is first loaded. `destroy()` removes them.
+- A handler runs only when the key that was just pressed is part of its combination and every other key of the combination is already held, in any order. Holding a key (auto-repeat) does not fire it again.
+- The match is not exclusive: extra keys held at the same time, such as Shift, do not stop a handler.
+- The held keys are reset when the mouse leaves the page or the window loses focus, so a key released outside cannot stay stuck.
+
+## Methods
+
+| Member | Description |
+| ------ | ----------- |
+| `add(keyCodes, func)` | Registers a combination. `func` gets the keyboard event and the handler. Returns the class for chaining. Throws if `keyCodes` is empty. |
+| `remove(keyCodes, func?)` | Removes the handlers of a combination. Give `func` to remove only that one. |
+| `getKeys()` | Returns the codes of the keys held right now. |
+| `clear()` | Forgets the held keys. |
+| `destroy()` | Removes the listeners and clears all state. |
+| `Debug` | When `true`, logs every key code to the console. Off by default. |
+
+## Example
+
+```ts
+const toggle = (e: KeyboardEvent) => {
+  e.preventDefault();
+  setOpen((open) => !open);
+};
+
+KeyloggerService.add(["AltLeft", "KeyW"], toggle);
+onCleanup(() => KeyloggerService.remove(["AltLeft", "KeyW"], toggle));
+```
+
+This is how the desktop page opens the workspace switcher. Call `e.preventDefault()` when the browser has a meaning for the same keys. Register handlers inside a component and remove them in `onCleanup`.
+
+## Shortcuts in the Demo
+
+| Keys | Action |
+| ---- | ------ |
+| Left Alt + W | Show or hide the workspace switcher |
+| Left Alt + L | Show or hide the language picker |

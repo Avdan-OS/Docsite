@@ -1,0 +1,20 @@
+---
+sidebar_position: 2
+---
+# Add a language
+
+1. Add the code and the native name to `src/static/locales.json`:
+
+   ```json
+   "de": { "nativeName": "Deutsch" }
+   ```
+
+2. Create `src/static/locales/<code>.json` with the same keys as `en.json` and translate the values.
+
+The language then appears in the language picker. If a key is missing in the new file, the key itself is shown, so check that the structure matches `en.json`.
+
+## Check the result
+
+- Open the Demo with the browser language set to the new one. It should be picked automatically.
+- Open the language picker with **Left Alt + L** and switch back and forth.
+- Look at the dock clock and the weekdays in the start menu: they use the browser's own names and need no keys.

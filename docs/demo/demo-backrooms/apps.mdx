@@ -1,0 +1,57 @@
+---
+sidebar_position: 3
+---
+# Apps
+
+Apps live in `src/apps`, one folder each, and are listed in `src/apps/registry.tsx`.
+
+## The registry
+
+`appDefinitions` is the list of everything that can be opened, from the dock or from the **New Tab** grid. Each entry is an `AppDefinition`:
+
+| Field | Meaning |
+| ----- | ------- |
+| `key` | Stable id. It becomes `appKey` on the tabs of this app, which groups the dock underlines. |
+| `titleKey` | Translation key of the title. By convention `apps.<key>`. |
+| `icon` | Icon path with the `@assets/` alias. |
+| `content` | Function that returns the window body. It is called every time the app is opened or picked. |
+| `contextMenu` | Optional context menu items. The default menu is used when omitted. |
+| `width`, `height` | Optional initial window size. |
+
+`pinnedApps` is the dock layout: the same apps in order, each with an `open(workspace)` action, and a separator before Settings.
+
+Apps that are not written yet are created with the `placeholder(key, icon)` helper, which shows a stub body.
+
+## Shape of an app
+
+A typical app is a small class with static members:
+
+```tsx
+export class Lale {
+  /** Icon path using the `@assets/` alias. */
+  static icon = "@assets/images/demo/icons/Apps/Lale.png";
+  /** Extra CSS classes for the window. */
+  static extraClass: string[] = [];
+  /** Window body. */
+  static Component: Component = () => {
+    const { t } = useI18n();
+    return <div class="lale-content">{t("apps.lale")}</div>;
+  };
+}
+```
+
+The registry turns it into an `AppDefinition` with `content: () => <Lale.Component />`. See [Add an app](../guides/add-an-app.mdx) for the full steps.
+
+## Apps in this version
+
+| App | Notes |
+| --- | ----- |
+| Files | A static mock of a file browser. Its content comes from `open-list-items.json` and `closed-items.json`. Only the context menu is interactive. |
+| Music | Track list, current track and playback controls. Playback state lives in `PlayerProvider`, so music keeps playing when the window is closed. Tracks are loaded by `apps/music-player/tracks.ts`. |
+| Messages | Chats with a working `MessagesStore`: you can pick a chat and send messages, and several windows stay in sync. |
+| Lale | A simple search window. |
+| Mail, Photos, Calendar, Notes, Settings | Placeholders. |
+
+## Context menus in apps
+
+An app creates its menu with `createContextMenu` and renders the `Menu` component once, then attaches `onContextMenu` to the element it should react on. See [Context menu](../reference/context-menu.mdx).

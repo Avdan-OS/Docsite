@@ -1,0 +1,94 @@
+---
+sidebar_position: 9
+---
+# Window store
+
+```ts
+import { windows, windowStore, findWindowByTabId } from "@/features/window/windowStore";
+import { createWindow } from "@/features/window/windowFactory";
+```
+
+This is not a `lib` module, so there is no barrel: import the files directly.
+
+## windows
+
+A reactive list of all open windows (a Solid store). Read it anywhere, but change it only through `windowStore`.
+
+## WindowTab
+
+| Field | Description |
+| ----- | ----------- |
+| `id` | Unique id. It stays the same when the tab moves between windows. |
+| `titleKey` | Translation key of the tab's text. A key with no translation is shown as is. |
+| `content` | Render function for the tab's body. |
+| `iconSrc` | Optional icon, shown next to the title and on the dock underline. |
+| `contextMenu` | Optional items for the menu opened by right-clicking the tab. |
+| `visible` | Whether the content is rendered. Several tabs can be visible at once. |
+| `appKey` | Which dock app the tab belongs to. |
+
+## WindowState
+
+| Field | Description |
+| ----- | ----------- |
+| `id` | Unique id. |
+| `tabs` | Tabs in display order. A window always has at least one. |
+| `activeTabId` | The focused tab. Always one of `tabs`. |
+| `x`, `y` | Stored position in px. |
+| `width`, `height` | Size in px while floating. |
+| `zIndex` | Stacking order. The highest is on top. |
+| `minimized` | Hidden into the dock. |
+| `attachment` | `"none"`, `"left"`, `"right"` or `"full"`: the screen edge it is snapped to. |
+| `lastX`, `lastY`, `lastWidth`, `lastHeight` | Floating geometry saved when attaching, restored on detach. |
+| `iconified` | `true` while the window is shrunk for a merge drag. |
+| `hasPanel` | Whether the top bar is rendered. |
+| `hasResize` | Whether the resize handles are rendered. |
+| `workspace` | Number of the workspace the window lives in. |
+
+## windowStore
+
+Every function targets a window or a tab by id and silently does nothing if the id is unknown, because it may have been closed or merged away between the event and its handler.
+
+| Action | Description |
+| ------ | ----------- |
+| `add` | Creates a window on top of the stack. `id` and `zIndex` are assigned here. Returns the id. |
+| `close` | Removes a window with all its tabs. |
+| `closeTab` | Removes a tab. The window closes when it was the last one. |
+| `setActiveTab` | Plain tab click: makes the tab active and shows only it. |
+| `addVisibleTab` | Ctrl+click: makes the tab active and shows it next to the visible ones. |
+| `addTab` | Appends a tab to a window and makes it active and visible. |
+| `setTabApp` | Replaces the app-defining fields of a tab in place. Used by the **New Tab** grid. |
+| `mergeWindow` | Moves every tab of a window into another and closes the source. |
+| `reorderTab` | Reorders a tab inside its window. |
+| `moveTab` | Moves one tab into another window. The source closes if it was the last tab. |
+| `detachTab` | Pulls a tab out into a new window that copies the size and the workspace of the source. |
+| `moveUp` | Raises a window above all others. |
+| `minimize`, `restore` | Hide a window into the dock, and show it again. |
+| `setPosition`, `setSize` | Set the stored position or size. |
+| `attach` | Snaps a window to an edge, remembering its floating geometry. Attaching to the edge it is already on makes it float again. |
+| `detach` | Restores the geometry from before attaching. |
+| `detachWithoutJump` | Like `detach`, used when a drag or resize starts on an attached window, so it does not jump under the cursor. |
+| `nudgePosition` | Adds a drag distance to the stored position without touching the live `transform`. |
+| `iconify`, `deiconify` | Mark a window as shrunk for a merge drag, and clear it. |
+
+Also exported: `findWindowByTabId(tabId)` (the window that holds a tab right now, or `undefined`), `getNextWindowId()` and `getNextTabId()` (ids that are never reused).
+
+## createWindow
+
+Opens a window with one tab, on top of all others, and returns its id.
+
+| Option | Description |
+| ------ | ----------- |
+| `titleKey` | Translation key of the first tab's title. |
+| `content` | Render function of the first tab's body. |
+| `iconSrc` | Icon of the first tab. |
+| `appKey` | Dock app of the first tab. |
+| `contextMenu` | Context menu items of the first tab. |
+| `hasPanel` | Render the top bar. Default: `true`. |
+| `hasResize` | Render the resize handles. Default: `true`. |
+| `x`, `y` | Position in px. Default: centered, vertically above the dock. |
+| `width`, `height` | Size in px. Default: 600 by 400. |
+| `workspace` | Workspace to open in. Default: 1. |
+
+## Layer
+
+`Layer` (`src/stores/layerStore.ts`) is the global z-index counter shared by all windows. Its value is the z-index the next raised window will get, so raising a window means taking `Layer.get()` and then calling `Layer.inc()`. It only grows.

@@ -1,17 +1,53 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Logic behind demo
 
-The Demo website is fully written from scratch using `HTML/CSS/JS`, so it's near enough to the webdriver to implement any possible feature if you're skilled enough.
+The Demo website is a single-page application written in **TypeScript** with **SolidJS**. Solid updates the page through fine-grained signals instead of re-rendering whole components, which is what keeps dragging windows smooth.
 
-It has 3 main layers:
-1. [Demo library](libdemo)
-2. [Window library](libwin)
-3. [Drag library](libdrag)
+It has these layers. Lower layers can't use upper layers, but upper layers can call lower layers:
 
-Lower layers can't use upper layers, but upper layers can call lower layers.
+1. **Library** (`src/lib`): reusable modules such as drag and drop, translations, context menus and shortcuts. It knows nothing about the rest of the app. See the [Library reference](../reference/about.mdx).
+2. **Stores and window feature** (`src/stores`, `src/features/window`): the state of the desktop. See [Windows](./windows.mdx).
+3. **Apps** (`src/apps`): the programs you can open. See [Apps](./apps.mdx).
+4. **Components and pages** (`src/components`, `src/pages`): the dock, the start menu and the desktop page that put everything together.
 
-All the class methods, that aren't supposed to return certain information, will return parent or expanded class.
+## Start-up
 
-Let's discover, how all that works.
+`src/index.tsx` mounts the app into the `#root` element. `src/Router.tsx` wraps it in the app-wide providers, from the outside in:
+
+| Provider | Gives descendants |
+| -------- | ----------------- |
+| `ThemeProvider` | The current theme and a way to change it |
+| `I18nProvider` | Translations and the language |
+| `PlayerProvider` | Audio playback state. It receives the track loader from the Music app |
+| `WorkspaceProvider` | The active workspace |
+| `DragAndDropProvider` | The drag and drop API. It is innermost because window and dock drags need the other contexts |
+
+`src/Layout.tsx` is the root layout: the main content and `DefaultContextMenu`, the fallback right-click menu. The only route is `/`, which shows `src/pages/Main.tsx`.
+
+## The desktop page
+
+`Main.tsx` puts the pieces together:
+
+- one `Workspace` container per workspace. Each holds a `WindowManager` for the windows of that workspace and a `SnapPreview`,
+- the `WorkspaceSwitcher` and the language picker, which slide in and out with **Left Alt + W** and **Left Alt + L**,
+- the `StartMenu` and the `Dock`.
+
+## State
+
+There is no global state framework. State is kept in small pieces close to where it is used:
+
+- `windowStore` (`features/window`) holds every window and tab in a Solid store.
+- `Layer` and `TaskbarStore` (`src/stores`) hold the z-index counter and the dock underline preview.
+- `StartMenuStore` (`lib/start-menu`) holds whether the start menu is open.
+- Each provider in `lib` keeps its own signals: theme, locale, player, workspace, drag state.
+- An app can have its own store, for example `MessagesStore`.
+
+## Dragging
+
+Dragging is a chain of `mousedown`, `mousemove` and `mouseup` events that moves elements by writing `transform: translate3d(...)` directly. It does not go through Solid state, so a drag costs no re-renders. Only coarse facts (is something dragged, what kind, which drop target) are published as signals so other components can react, for example by highlighting a window that would receive a tab. See [Drag and drop](../reference/drag-and-drop.mdx).
+
+## Build
+
+Vite builds the project with SCSS, obfuscation and gzip. Every generated folder index under `src/lib` comes from `npm run gen:lib`, which also runs before each production build. See [Deployment](../getting-started/deployment.mdx).

@@ -1,0 +1,50 @@
+---
+sidebar_position: 4
+---
+# Workspace
+
+```ts
+import { WorkspaceProvider, useWorkspace, Workspace, WorkspaceSwitcher } from "@lib/workspace";
+```
+
+## WorkspaceProvider
+
+Holds which numbered workspace is active for its children.
+
+| Prop | Description |
+| ---- | ----------- |
+| `initialWorkspace` | The workspace shown first. Default: 1. |
+| `children` | The subtree. |
+
+## useWorkspace
+
+Returns `{ current, set }`:
+
+| Member | Description |
+| ------ | ----------- |
+| `current()` | Reactive number of the active workspace. |
+| `set(n)` | Switches to workspace `n`. Throws when `n` is not a number or is `NaN`. |
+
+## Workspace
+
+Container of one workspace's windows.
+
+| Prop | Description |
+| ---- | ----------- |
+| `id` | Number of the workspace. The container is visible only while this workspace is active. |
+| `children` | What to render inside. |
+
+Inactive containers are hidden with `display: none`, not unmounted, so their windows keep their state.
+
+## WorkspaceSwitcher
+
+A row of numbered buttons for switching the active workspace, fixed at the top of the screen.
+
+| Prop | Description |
+| ---- | ----------- |
+| `count` | Number of workspaces. Buttons are numbered from 1 to `count`. |
+| `open` | Whether it is slid into view. Default: `true`. While `false` it slides up out of view and its buttons cannot be focused or clicked. |
+
+## Which window belongs to which workspace
+
+That is not part of this module: every window record has a `workspace` number (see [Window store](./window-store.mdx)), and the desktop page renders one `WindowManager` inside each `Workspace`.

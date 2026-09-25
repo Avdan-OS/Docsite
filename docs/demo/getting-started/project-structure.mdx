@@ -1,0 +1,71 @@
+---
+sidebar_position: 2
+---
+# Project structure
+
+```text
+src/
+  index.tsx, Router.tsx, Layout.tsx   Entry point, app-wide providers, page layout
+  pages/                              Route components (currently only Main)
+  features/window/                    Window system: state, factory and components
+  components/                         Shared UI: Dock, StartMenu, Dropdown, ThemeToggle, ...
+  apps/                               One folder per app, plus registry.tsx
+  stores/                             Small global stores (taskbar, layers)
+  lib/                                Reusable modules, imported as @lib/<module>
+  styles/                             SCSS, one file per component or app
+  static/                             Assets, fonts, locales and tracks.json
+public/                               Files served as they are (favicons)
+scripts/, plugins/                    Build tooling
+```
+
+## Dependency rule
+
+Dependencies point one way:
+
+```text
+index → Router / Layout → pages → components → apps/registry → apps → stores → lib
+```
+
+- `lib` does not import anything else from `src`.
+- Apps do not import each other. They share code through `lib` and `components`.
+- `features/window` has no barrel file on purpose: `apps/registry.tsx` and the window components import each other's modules, and a barrel would turn that into a real cycle. Import the file you need, for example `@/features/window/windowStore`.
+
+## Folders in detail
+
+### `lib/`
+
+Reusable modules. Each has its own folder with its types, context, provider and hooks. A generated `index.ts` in every folder exposes the public API, so you import from `@lib/<module>`.
+
+| Module | What it is for |
+| ------ | -------------- |
+| `assets` | `resolveAsset`, turns an `@assets/...` path into a bundled URL. |
+| `context-menu` | Right-click menus. |
+| `cookie`, `date`, `spin` | Small standalone helpers. |
+| `drag-and-drop` | Mouse drags that move elements by transform. |
+| `i18n` | Translations and language detection. |
+| `keylogger` | Keyboard shortcuts. |
+| `player` | Audio playback state. |
+| `start-menu` | Open state of the start menu. |
+| `theme` | Light and dark theme. |
+| `workspace` | The active workspace and its components. |
+
+See the [Library reference](../reference/about.mdx) for the API of each one.
+
+### `features/window/`
+
+Everything about windows: the state (`windowStore.ts`), the factory that opens windows (`windowFactory.ts`) and the components (`Window`, `WindowPanel`, `WindowResizers`, `WindowManager`, `NewTabContent`, `SnapPreview`).
+
+### `apps/`
+
+One folder per app (`file-manager`, `lale`, `messages`, `music-player`, `placeholder`) and `registry.tsx`, which lists every app for the dock, the start menu and the "New Tab" grid.
+
+### `stores/`
+
+Small global stores that several components share: `layerStore.ts` (z-index counter) and `taskbarStore.ts` (dock underline preview).
+
+### `static/`
+
+- `assets/` images and audio. Reference them with the `@assets/` alias.
+- `fonts/` fonts.
+- `locales/` translation files, plus `locales.json` next to it with the list of languages.
+- `tracks.json` the list of music tracks.

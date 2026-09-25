@@ -1,0 +1,88 @@
+---
+sidebar_position: 6
+---
+# Drag and drop
+
+```ts
+import { DragAndDropProvider, useDragAndDrop } from "@lib/drag-and-drop";
+```
+
+Mouse dragging that moves elements by writing `transform: translate3d(...)` directly, so a drag costs no re-renders.
+
+## DragAndDropProvider
+
+Mount it once near the app root. Components then use `useDragAndDrop()` to start drags and to react to one in progress.
+
+Worth knowing:
+
+- Text selection is disabled on `document.body` while dragging.
+- Leaving the page counts as a drop. Without it the drag would stay stuck, because no `mouseup` arrives.
+- Several binds can be active at once, for example a window body and its tab, all following the same mouse movement.
+- Movement is applied inside `requestAnimationFrame`, after the per-tick callbacks, so a callback that changes the transform of `target` is not overwritten.
+
+## useDragAndDrop
+
+Returns the API:
+
+| Member | Description |
+| ------ | ----------- |
+| `bind(info)` | Makes `info.currentTarget` start a drag on `mousedown`. Call it once per element, for example in a `ref` callback. The listener is never removed, so bind only elements that live as long as the component. |
+| `isDragging()` | `true` while any drag is in progress. |
+| `dragKind()` | The `kind` of the active drag, or `null`. |
+| `draggedEl()` | The `target` of the active drag, or `null`. |
+| `dropTarget()` | What the active drag is hovering as a drop candidate, or `null`. |
+| `setDropTarget(target)` | Reports (or clears, with `null`) the current drop candidate. It is also cleared when the drag ends. |
+
+## DragInfo
+
+The object given to `bind`.
+
+| Field | Description |
+| ----- | ----------- |
+| `currentTarget` | The element that listens for `mousedown`. |
+| `target` | The element that is moved. Often the same, but it can differ: grabbing a window's top bar moves the whole window. |
+| `kind` | What the drag represents. Published while it runs: `window-move`, `window-resize`, `window-insert`, `tab`, `dock-bar` or `dock-icon`. |
+| `currentTarget_in_f`, `target_in_f` | Called when the drag starts. |
+| `currentTarget_f`, `target_f` | Called on every mouse move. |
+| `currentTarget_out_f`, `target_out_f` | Called when the drag ends. |
+| `drop_f` | Called after the end callbacks. This is the place to commit the result (merge, attach, reorder). |
+| `modify_X`, `modify_Y` | Allow movement on an axis. Default: `true`. |
+| `extraX`, `extraY` | Offset added to the transform at the start and removed at the end. Default: 0. |
+| `looseTarget` | Let a drag start from a `mousedown` on a child of `currentTarget`. By default only a `mousedown` directly on it does. |
+
+Each callback receives the mouse event, the element and the `DragInfo`.
+
+## DropTarget
+
+A candidate reported live by whoever owns the drag. The drag system does no hit testing itself.
+
+- `merge-tab`: a window that would receive the dragged tab or window.
+- `attach`: a screen edge the dragged window would snap to.
+
+## Helpers
+
+| Function | Description |
+| -------- | ----------- |
+| `getTranslate(el)` | Reads `[x, y]` from the element's inline `translate3d`. Any other transform reads as `[0, 0]`. |
+| `setTranslate(el, x, y)` | Writes a `translate3d`, replacing any other transform. |
+| `suppressClickAfterDrag(el, threshold = 5)` | Stops the click the browser fires after a drag that ends on the same element. Returns `onStart` and `onMove` callbacks to pass as drag callbacks. Call it before attaching the element's own click handler. |
+| `createLiveReorder(dragged, isReorderable)` | Drives a live "push siblings aside" preview. Returns `update(clientX, clientY)` for every tick and `finish()` for the end. The order is changed in the DOM at once, so the final position is the element's index among its siblings. |
+
+## Example
+
+```ts
+const guard = suppressClickAfterDrag(tabEl);
+const reorder = createLiveReorder(tabEl, (el) => el.classList.contains("win-tab"));
+
+dnd.bind({
+  currentTarget: tabEl,
+  target: tabEl,
+  kind: "tab",
+  currentTarget_in_f: guard.onStart,
+  currentTarget_f: (e) => {
+    guard.onMove(e);
+    reorder.update(e.clientX, e.clientY);
+  },
+  drop_f: () => reorder.finish(),
+});
+```
