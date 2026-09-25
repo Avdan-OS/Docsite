@@ -1,0 +1,51 @@
+---
+sidebar_position: 7
+---
+# Player
+
+```ts
+import { PlayerProvider, usePlayer } from "@lib/player";
+import type { Track } from "@lib/player";
+```
+
+Owns the single `Audio` element and exposes playback state to its children.
+
+## PlayerProvider
+
+| Prop | Description |
+| ---- | ----------- |
+| `loadTracks` | A function that returns a promise with the list of `Track`. The player does not care where tracks come from. It is called on start and again on `reload`. |
+| `children` | The subtree. |
+
+The audio element is recreated whenever the track changes. When a track ends, the next one starts, and the list wraps around at both ends.
+
+## Track
+
+| Field | Description |
+| ----- | ----------- |
+| `id` | Position of the track in the list. |
+| `title`, `artist` | Song title and artist, also part of the asset file names. |
+| `url` | Bundled audio file URL. |
+| `src` | Bundled cover image URL. |
+
+## usePlayer
+
+| Member | Description |
+| ------ | ----------- |
+| `list()` | All loaded tracks. Empty until loading finishes. |
+| `reload()` | Loads the list again. |
+| `currentIndex()` | Index of the selected track. |
+| `currentTime()` | Playback position in seconds. |
+| `duration()` | Length of the current track in seconds, 0 until the metadata has loaded. |
+| `volume()` | Volume from 0 to 1. |
+| `paused()` | `true` when nothing is playing. |
+| `play()`, `pause()`, `toggle()` | Start or resume, pause, or flip between the two. |
+| `next()`, `prev()` | Go to the next or the previous track, wrapping around. |
+| `setTime(seconds)` | Seeks. Ignored when outside the track. |
+| `setIndex(index)` | Selects and plays a track. Ignored when out of range. |
+| `setVolume(volume)` | Sets the volume. Values are clamped to 0 to 1. |
+| `getCurrentTrack()` | The selected track, or an empty placeholder with `id: -1` if none is loaded. |
+
+## The Demo's loader
+
+The Music app gives the provider `loadTracks` from `src/apps/music-player/tracks.ts`. It reads `src/static/tracks.json` and matches each entry to its audio and cover by the `Artist - Title` file name. See [Add a track](../guides/add-a-track.mdx).

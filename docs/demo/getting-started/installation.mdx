@@ -1,0 +1,65 @@
+---
+sidebar_position: 1
+---
+# Installation
+
+The Demo is compiled by Vite, so opening `index.html` directly in a browser does not work. Run it through the development server instead.
+
+## Requirements
+
+- [Node.js](https://nodejs.org/) **26** or newer. The version is pinned in the `.nvmrc` file, so with [nvm](https://github.com/nvm-sh/nvm) or [fnm](https://github.com/Schniz/fnm) run `nvm use` (or `fnm use`) in the project folder.
+- Git and npm.
+
+## Run it
+
+```sh
+git clone git@github.com:Avdan-OS/Demo.git
+cd Demo
+npm ci
+npm run dev
+```
+
+The development server starts on [http://localhost:5173](http://localhost:5173) and reloads the page when you change a file.
+
+## Branches
+
+| Branch | Purpose |
+| ------ | ------- |
+| `main` | Stable code. Every push to it builds the project and deploys the site to GitHub Pages. |
+| `dev` | Integration branch. All new work lands here first and is not deployed. |
+
+Create your branch from `dev` and open the pull request into `dev`.
+
+## Scripts
+
+| Command | What it does |
+| ------- | ------------ |
+| `npm run dev` | Starts the Vite development server with hot reload. |
+| `npm run build` | Production build into `dist/`. It first runs `gen:lib` and `format`, so it can rewrite files in your working tree. |
+| `npm run preview` | Serves the built `dist/` on [http://localhost:4173](http://localhost:4173). |
+| `npm run lint` | Runs ESLint (TypeScript, Solid and TSDoc rules) on `src`. |
+| `npm run lint:fix` | Same, applying automatic fixes. |
+| `npm run format` | Formats the whole project with Prettier. |
+| `npm run gen:lib` | Regenerates the `index.ts` barrel files under `src/lib`. |
+| `npm run docs` | Generates the API reference with TypeDoc into `docs/`. The folder is git-ignored. |
+
+## Import aliases
+
+| Alias | Points to |
+| ----- | --------- |
+| `@/` | `src/` |
+| `@lib/` | `src/lib/` |
+| `@styles/` | `src/styles/` |
+| `@static/` | `src/static/` |
+| `@assets/` | `src/static/assets/` |
+
+## Before you commit
+
+```sh
+npx tsc --noEmit    # type check
+npm run lint        # ESLint
+npm run format      # Prettier
+npm run build       # the production build must still succeed
+```
+
+More details are in `CONTRIBUTING.md` in the repository.

@@ -1,0 +1,43 @@
+---
+sidebar_position: 8
+---
+# Theme, assets and start menu
+
+## Theme
+
+```ts
+import { ThemeProvider, useTheme } from "@lib/theme";
+import type { Theme } from "@lib/theme";
+```
+
+`Theme` is `"light"` or `"dark"`, mirrored in the `data-theme` attribute of `<html>`.
+
+`ThemeProvider` provides the current theme and keeps `data-theme` in sync. The initial theme is the value saved in `localStorage` under `theme`, otherwise the operating system preference. While nothing is saved the system preference is followed live. Once a saved value existed on load it always wins.
+
+`useTheme()` returns a `[theme, setTheme]` pair. The `ThemeToggle` component (in `src/components`) is a ready-made sun and moon button that flips it.
+
+## Assets
+
+```ts
+import { resolveAsset } from "@lib/assets";
+```
+
+`resolveAsset(path)` turns a path that starts with `@assets/` (relative to `src/static/assets`) into the URL of the bundled file. Use it where the Vite alias cannot be resolved at run time: paths stored in JSON data or passed in props. If the file does not exist, the path is returned unchanged.
+
+```tsx
+<img src={resolveAsset("@assets/images/demo/icons/Search.png")} />
+```
+
+## Start menu
+
+```ts
+import { StartMenuStore } from "@lib/start-menu/store";
+```
+
+The shared state of the start menu. It is a module-level singleton, so any component can use it without props or a provider.
+
+| Member | Description |
+| ------ | ----------- |
+| `isOpen()` | Reactive: `true` while the menu is open. |
+| `open()`, `close()` | Open or close the menu. |
+| `toggle()` | Open it if it is closed and the other way round. |

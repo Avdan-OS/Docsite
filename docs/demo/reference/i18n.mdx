@@ -1,0 +1,53 @@
+---
+sidebar_position: 2
+---
+# i18n
+
+```ts
+import { I18nProvider, useI18n, useLocalizer } from "@lib/i18n";
+```
+
+Translations and language detection. See [Translations](../demo-backrooms/i18n.mdx) for how it works and the files it reads.
+
+## I18nProvider
+
+Loads translations and provides them to its children.
+
+```tsx
+<I18nProvider>{/* the app */}</I18nProvider>
+```
+
+- Initial language: the one saved in `localStorage` (`app_locale`), then the browser language, then English.
+- A language is supported when it is listed in `static/locales.json` and has a `static/locales/<code>.json` file.
+- The children are rendered after the first language has loaded.
+
+## useI18n
+
+Returns the i18n context.
+
+| Member | Description |
+| ------ | ----------- |
+| `currentLocale()` | Code of the active language, for example `en`. |
+| `translations()` | Texts of the active language, `undefined` until the first load. |
+| `setLocale(code)` | Switches language and remembers it. Unsupported codes fall back to English. Returns a promise. |
+| `t(key, fallback?)` | Translates a dotted key such as `dock.clock`. Returns `fallback`, or the key itself, if the key is missing. |
+| `availableLocales()` | List of `{ code, nativeName }`, for building a language picker. |
+| `isLoading()` | `true` while a language is being loaded. |
+| `loadNamespace(namespace, code)` | Loads the file `<namespace>.<code>.json`. Falls back to English or to the main file. |
+
+## useLocalizer
+
+```ts
+const l = useLocalizer("landing");
+l("title", "Welcome");
+```
+
+Returns a translate function bound to a namespace. Without a namespace it works like `t`. With one it reads `static/locales/<namespace>.<code>.json` and reloads when the language changes.
+
+## Translations
+
+The type of a translation tree: every key maps to a text or to a nested group of keys.
+
+## Components
+
+`LanguageDropdown` (in `src/components`) is a ready-made language picker built from `availableLocales`. It takes an optional `returnUrl` and opens a full page load at that address after the change.

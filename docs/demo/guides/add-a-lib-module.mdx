@@ -1,0 +1,14 @@
+---
+sidebar_position: 4
+---
+# Add a lib module
+
+1. Create `src/lib/<module-name>/` (kebab-case) with your files. Give every exported item a TSDoc comment.
+2. Run `npm run gen:lib`. It writes an `index.ts` in every `lib` folder and exposes each folder as a PascalCase namespace from `src/lib/index.ts`. Never edit those files by hand, they are overwritten.
+3. Import from the module as `@lib/<module-name>`.
+
+## Rules
+
+- Everything a file exports becomes part of the module's public API. Do not export helpers used only inside one file.
+- Inside a module import sibling files with relative paths, for example `./types`, never through the module's own `@lib/<module-name>`. That creates circular imports.
+- `lib` must not import from `components`, `apps`, `stores`, `features` or `pages`.

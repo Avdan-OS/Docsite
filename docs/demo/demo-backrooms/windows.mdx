@@ -1,0 +1,55 @@
+---
+sidebar_position: 2
+---
+# Windows
+
+The window system lives in `src/features/window`.
+
+## Data model
+
+Every open window is a `WindowState` record in `windowStore`, and every tab is a `WindowTab` inside it. The full list of fields is in the [Window store](../reference/window-store.mdx) reference.
+
+The important ideas:
+
+- A window always has at least one tab. `activeTabId` is the tab that is focused, and each tab has a `visible` flag: several tabs can be visible at once (Ctrl+click) and are laid out side by side.
+- A tab has its own identity. It keeps its `id` when it moves between windows through merge, move or detach, so anything that needs "the window this tab is in" must look it up with `findWindowByTabId` instead of remembering a window id.
+- `appKey` on a tab tells which dock app it belongs to. It lives on the tab, not on the window, because one window can end up holding tabs of several apps.
+- `x` and `y` are the *stored* position. While you drag or resize, the live element carries a `transform` on top of it that is not folded back, so the stored values can lag behind the real position.
+- `zIndex` comes from the global `Layer` counter. Raising a window means taking the counter's value and increasing it.
+- `workspace` is the number of the workspace the window lives in.
+
+## Opening a window
+
+`createWindow` (`windowFactory.ts`) builds the first tab and calls `windowStore.add`. By default the window is centered above the dock, 600 by 400 px, in workspace 1. The dock and the start menu call it through an app's `open(workspace)`, passing the active workspace.
+
+## Rendering
+
+`WindowManager` renders the windows of one workspace. `Main.tsx` mounts one per workspace inside that workspace's container, and inactive containers are hidden with `display: none`, so their windows keep their state.
+
+`WindowComponent` draws one window. It writes the stored geometry as inline style, with these special cases:
+
+- **Attached windows** (snapped left, right or full screen; full screen comes from a double click on the panel or the maximize button) use a half or full screen layout instead of the stored geometry. The floating geometry is saved so it can be restored.
+- **Iconified windows**: while a window is dragged by its insert button it is shown at half size, so the merge target behind it stays visible.
+- **Minimum width**: the panel measures its real content (tabs and buttons) and sets it as the window's own `min-width`. The browser enforces it for any resize or merge, so a window can never be narrower than its top bar.
+- **Taskbar preview**: hovering a dock underline raises the window above the others and shows it even if minimized.
+- **Drop target**: the window is highlighted while another tab or window is dragged over it as a merge candidate.
+
+## Drags from the top bar
+
+`WindowPanel` binds three kinds of drag and reports what each would do through `dnd.setDropTarget`, so `SnapPreview` and the merge highlight can preview the result live.
+
+| Drag | What happens on release |
+| ---- | ----------------------- |
+| Empty part of the panel (`window-move`) | At the left, right or top screen edge the window snaps to the left or the right half, depending on which half of the screen the pointer is in (`windowStore.attach`). Anywhere else it stays where it is. |
+| Insert button (`window-insert`) | Over another window: all tabs are merged into it. Over empty desktop: the window is restored. |
+| A tab (`tab`) | In its own window: reorder. Over another window: move there (visible on the panel, hidden on the body). On empty desktop: pop out as a new window, unless it is the only tab. |
+
+Single click, Ctrl+click and double click on a tab switch to it, show it next to the visible ones and close it. `suppressClickAfterDrag` stops the click that a drag would otherwise trigger.
+
+## Dock underlines
+
+`AppIcon` in the dock collects every tab whose `appKey` matches its app and draws one underline for each. An underline always looks its window up again, because the tab can be relocated at any time.
+
+## Workspaces
+
+The active workspace is kept in the `WorkspaceProvider`. Clicking an underline of a window that is in another workspace switches to it first.

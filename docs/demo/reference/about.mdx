@@ -1,0 +1,19 @@
+---
+sidebar_position: 1
+---
+# About the reference
+
+This section describes the modules of `src/lib` and the window store. Every public function, component and type in the source code has a TSDoc comment. Run `npm run docs` in the repository to build the complete API reference with TypeDoc into the `docs/` folder (it is not committed).
+
+| Page | Module |
+| ---- | ------ |
+| [i18n](./i18n.mdx) | `@lib/i18n`: translations and language detection |
+| [Keylogger](./keylogger.mdx) | `@lib/keylogger`: keyboard shortcuts |
+| [Workspace](./workspace.mdx) | `@lib/workspace`: the active workspace |
+| [Context menu](./context-menu.mdx) | `@lib/context-menu`: right-click menus |
+| [Drag and drop](./drag-and-drop.mdx) | `@lib/drag-and-drop`: dragging elements |
+| [Player](./player.mdx) | `@lib/player`: audio playback |
+| [Theme, assets and start menu](./small-modules.mdx) | `@lib/theme`, `@lib/assets`, `@lib/start-menu` |
+| [Window store](./window-store.mdx) | `features/window`: windows, tabs and how to open them |
+
+Import a module from its folder, for example `import { useI18n } from "@lib/i18n"`. Every hook that reads a context throws when it is used outside its provider.

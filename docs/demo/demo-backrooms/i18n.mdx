@@ -1,0 +1,61 @@
+---
+sidebar_position: 4
+---
+# Translations
+
+The whole interface is translated. The code is in `src/lib/i18n` and the texts are in `src/static/locales`.
+
+## Files
+
+- `src/static/locales.json` lists the supported languages with their names in their own language:
+
+  ```json
+  {
+    "en": { "nativeName": "English" },
+    "ro": { "nativeName": "Română" },
+    "ru": { "nativeName": "Русский" }
+  }
+  ```
+
+- `src/static/locales/<code>.json` holds the texts of one language as nested objects.
+
+A language is available when it is listed in `locales.json` **and** has a file. All files must have the same keys.
+
+## Choosing the language
+
+On start the provider takes the first that is available:
+
+1. the language saved in `localStorage` (`app_locale`),
+2. the browser language (`navigator.language`, first two letters),
+3. English.
+
+`setLocale` changes the language and remembers it. The provider also sets `lang` on the `<html>` element.
+
+The children of `I18nProvider` are rendered only after the first language has loaded, so untranslated keys never flash on screen. Switching the language keeps the page on screen while the new file loads.
+
+## Translating text
+
+Call `t` from `useI18n()` with a dotted key:
+
+```tsx
+const { t } = useI18n();
+return <div>{t("start_menu.today")}</div>;
+```
+
+If a key is missing, `t` returns the fallback you give it as the second argument, or the key itself.
+
+Where texts are stored as data, the value is a key too:
+
+- the title of an app and of a window tab is a key (`titleKey`, for apps `apps.<key>`),
+- the `text` of a context menu item is a key, for example `"context_menu.copy"`,
+- labels in the mock data of the Files app are translated by the convention `files.data.<label in lower case, other characters replaced by "_">`. The original label is shown when the key is missing.
+
+## Dates
+
+Dates are not stored as keys. Use `toLocaleDateString(currentLocale(), options)` so that the browser names the days and months in the right language. The dock clock and the weekdays in the start menu do this.
+
+## Namespaces
+
+For big groups of texts a separate file `<namespace>.<code>.json` can be used and read with `useLocalizer("<namespace>")`. It falls back to English. The Demo does not use namespaces yet.
+
+See [Add a language](../guides/add-a-language.mdx) and the [i18n reference](../reference/i18n.mdx).

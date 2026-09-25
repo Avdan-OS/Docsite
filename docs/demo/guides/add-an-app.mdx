@@ -1,0 +1,36 @@
+---
+sidebar_position: 1
+---
+# Add an app
+
+1. Create `src/apps/<app-name>/<AppName>.tsx`. Use `Lale.tsx` as the smallest example: a class with static `icon`, `extraClass` and `Component`.
+2. Put the styles in `src/styles/<app-name>.scss` and import them from the component with `import "@styles/<app-name>.scss"`.
+3. Add the title to every language file under `src/static/locales`, as `apps.<key>`:
+
+   ```json
+   { "apps": { "weather": "Weather" } }
+   ```
+
+4. Add an entry to `appDefinitions` in `src/apps/registry.tsx`:
+
+   ```tsx
+   {
+     key: "weather",
+     titleKey: "apps.weather",
+     icon: Weather.icon,
+     content: () => <Weather.Component />,
+     width: 600,
+     height: 400,
+   },
+   ```
+
+   The app now appears in the dock, in the start menu and in the **New Tab** grid.
+
+5. To implement one of the unfinished apps (Mail, Photos, Calendar, Notes, Settings), replace its `placeholder(...)` entry with a real one.
+
+## Tips
+
+- Apps must not import other apps. Share code through `lib` or `components`.
+- Reference images with the `@assets/...` alias. When the path is a string in data or props, pass it through `resolveAsset` from `@lib/assets`.
+- For a right-click menu use [`createContextMenu`](../reference/context-menu.mdx) and render its `Menu` once.
+- Every string the user sees must go through `t`. See [Translations](../demo-backrooms/i18n.mdx).

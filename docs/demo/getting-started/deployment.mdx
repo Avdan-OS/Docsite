@@ -1,0 +1,38 @@
+---
+sidebar_position: 3
+---
+# Deployment
+
+The site is published on GitHub Pages by the workflow `.github/workflows/pages.yml`.
+
+## Enable it once
+
+In the repository go to **Settings → Pages → Build and deployment** and set **Source** to **GitHub Actions**.
+
+With *Deploy from a branch* GitHub would publish the repository files as they are. The repository holds TypeScript sources, so the published `index.html` would point to `/src/index.tsx` and the site could not load its scripts and styles.
+
+## What the workflow does
+
+It runs on every push to `main` and can also be started by hand from the **Actions** tab.
+
+1. Checks out the repository.
+2. Installs the Node version from `.nvmrc`.
+3. Runs *Setup Pages*, which reports the site's base path.
+4. Installs dependencies with `npm ci` and runs `npm run build`.
+5. Uploads the `dist/` folder and deploys it.
+
+## The base path
+
+A project site is served from `/<repository name>/`, for example `https://avdan-os.github.io/Demo/`, not from the domain root. The build reads the public base path from the `VITE_BASE_PATH` environment variable (`/` when it is not set) and gives it to Vite and to the router. The workflow sets it from the Pages step, so it always matches the repository name.
+
+That is why a plain `npm run build` on your machine produces root paths such as `/js/index.js`. To check a build with the real prefix:
+
+```sh
+VITE_BASE_PATH=/Demo/ npm run build
+VITE_BASE_PATH=/Demo/ npm run preview   # opens http://localhost:4173/Demo/
+```
+
+## Good to know
+
+- GitHub Pages sends HTML with `cache-control: max-age=600`. For up to ten minutes after a deploy a browser can still show the previous page and ask for files that no longer exist. A hard refresh (Ctrl+Shift+R) fixes it.
+- Files loaded through `import.meta.glob` (locales, tracks and assets) are excluded from obfuscation in `vite.config.ts`. If you add another file that uses it, add it to the exclude list too.

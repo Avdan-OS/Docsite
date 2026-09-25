@@ -1,0 +1,51 @@
+---
+sidebar_position: 5
+---
+# Context menu
+
+```ts
+import { createContextMenu, defaultMenu, DefaultContextMenu } from "@lib/context-menu";
+```
+
+## createContextMenu
+
+Creates a menu owned by the calling component.
+
+```tsx
+const { onContextMenu, Menu } = createContextMenu([
+  { type: "plain", icon: CopyIcon, text: "context_menu.copy", callback: copy },
+  { type: "split" },
+  { type: "plain", icon: DeleteIcon, text: "context_menu.delete" },
+]);
+
+return (
+  <div onContextMenu={onContextMenu}>
+    <Menu />
+  </div>
+);
+```
+
+The argument is an array of items, or a function that returns one and is evaluated every time the menu opens. It returns the `onContextMenu` handler to attach to an element and the `Menu` component to render once in the same component.
+
+Behaviour:
+
+- Only one menu is open at a time. Opening a menu closes the previous one.
+- The handler stops the event from bubbling, so the most specific menu wins over its ancestors and over the default menu.
+- A double right click near the same spot is an escape hatch: the browser's own menu appears.
+- The menu is measured after it mounts and moved so it stays inside the viewport.
+- A click anywhere closes it. Call `createContextMenu` inside a component so its listeners are cleaned up.
+
+## Items
+
+| Type | Fields |
+| ---- | ------ |
+| `plain` | `type: "plain"`, `icon` (a component), `text` (a translation key, shown as is when there is no translation), optional `callback(e)` that runs on click just before the menu closes. |
+| `split` | `type: "split"`. A horizontal separator. |
+
+## defaultMenu and DefaultContextMenu
+
+`defaultMenu` is the list of items of the app-wide fallback menu (copy, paste, cut). `DefaultContextMenu` shows it wherever no more specific menu claims the right click. Mount it once at the app root, as `Layout.tsx` does. It listens on `window`, so it also sees clicks over another menu's popup.
+
+## Icons
+
+The icons for common items are in `@lib/context-menu/icons`: `CopyIcon`, `PasteIcon`, `CutIcon`, `DownloadIcon` and `DeleteIcon`.

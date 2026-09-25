@@ -1,0 +1,14 @@
+---
+sidebar_position: 3
+---
+# Add a track
+
+1. Add `{ "title": "...", "artist": "..." }` to `src/static/tracks.json`.
+2. Add the audio as `src/static/assets/audio/<Artist> - <Title>.mp3`.
+3. Add the cover as `src/static/assets/images/demo/player/<Artist> - <Title>.jpg`. The formats `.webp` and `.png` also work.
+
+The file names must match the `Artist - Title` pair exactly. A missing file makes the loader fail with `Audio not found` or `Image not found`.
+
+## How it is loaded
+
+`PlayerProvider` does not know where tracks come from. The Music app gives it a `loadTracks` function (`apps/music-player/tracks.ts`), which reads `tracks.json`, finds the audio and cover of every entry with `import.meta.glob` and returns a list of `Track` objects. See the [Player](../reference/player.mdx) reference.
